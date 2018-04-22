@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import Progress from '../Progress'
+
 import './Navigation.css';
 
 class Navigation extends Component {
@@ -161,6 +164,7 @@ class Navigation extends Component {
 						</ul>
 					</div>
 				</div>
+				<Progress />
 			</nav>
 		);
 	}
