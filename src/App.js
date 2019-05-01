@@ -58,7 +58,7 @@ class App extends Component {
 					<div className="row">
 						<ListGroup columnSize={6} values={[
 							'C#',
-							'.NET',
+							'.NET Framework/Core',
 							'ASP.NET Framework/Core',
 							'ASP.NET MVC',
 							'Episerver CMS',
@@ -73,6 +73,7 @@ class App extends Component {
 							'Javascript',
 							'HTML5',
 							'CSS3',
+							'GraphQL',
 							'React',
 							'AngularJS / Angular',
 							'jQuery',
@@ -107,6 +108,7 @@ class App extends Component {
 							'PostgreSQL',
 							'Visual Studio',
 							'Maven',
+							'Travis CI',
 							'LaTeX'
 						]} />
 					</div>
