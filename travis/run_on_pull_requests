@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+echo "Thank you for your pull request!"
