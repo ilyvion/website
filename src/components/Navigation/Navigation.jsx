@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withRouter } from "react-router";
+import { NavLink } from "react-router-dom";
 
 import Progress from '../Progress'
 
@@ -10,38 +12,76 @@ class Navigation extends Component {
 		this.state = {
 			atTop: true,
 			navigationExpanded: false,
-			activeNavigationItem: null
+			activePageNavigationItem: null,
+			arrowCalculationInProgress: false,
+			arrowPosition: null
 		};
+	}
+
+	componentDidUpdate(prevProps) {
+		if (this.props.location !== prevProps.location) {
+			this.onRouteChanged();
+		}
 	}
 
 	componentDidMount() {
 		window.addEventListener('scroll', (e) => this.handleScroll(e));
+		this.onRouteChanged();
 	}
 
 	componentWillUnmount() {
 		window.removeEventListener('scroll', (e) => this.handleScroll(e));
 	}
 
+	onRouteChanged() {
+		this.setState({ arrowCalculationInProgress: true, arrowPosition: null }, () => {
+			this.setState({
+				arrowCalculationInProgress: false,
+				arrowPosition: this.calculateArrowPosition()
+			});
+		});
+	}
+
+	calculateArrowPosition() {
+		const activePage = document.querySelector(".site-navbar .active");
+		const activePageRect = activePage.getBoundingClientRect();
+		const activePageLinkPos = activePageRect.x + activePageRect.width / 2;
+
+		const pageNavBar = document.querySelector(".page-navbar");
+		const pageNavBarRect = pageNavBar.getBoundingClientRect();
+		const arrowOffsetBasePos = pageNavBarRect.x;
+		const arrowOffset = Math.floor(activePageLinkPos - arrowOffsetBasePos);
+
+		return arrowOffset;
+	}
+
 	handleScroll(event) {
-		const { menuItems } = this.props;
+		const { menuItems, location } = this.props;
 
 		const scrollTop = document.scrollingElement.scrollTop;
-		
+
 		const navNode = document.getElementById("mainNavbar");
 		const navNodeHeight = navNode.offsetHeight;
 
-		let activeNavigationItem = null;
+		let activePageNavigationItem = null;
 		menuItems.forEach(element => {
-			let node = document.getElementById(element.id);
-			let nodeTop = node.offsetTop;
+			if (element.url === location.pathname && element.pageNav) {
+				element.pageNav.forEach(pn => {
+					let node = document.getElementById(pn.id);
+					if (!node) {
+						return;
+					}
+					let nodeTop = node.offsetTop;
 
-			if (nodeTop <= scrollTop + navNodeHeight + 1) {
-				activeNavigationItem = element.id;
+					if (nodeTop <= scrollTop + navNodeHeight + 1) {
+						activePageNavigationItem = pn.id;
+					}
+				});
 			}
 		});
 		this.setState({
 			atTop: scrollTop === 0,
-			activeNavigationItem
+			activePageNavigationItem
 		});
 	}
 
@@ -83,18 +123,19 @@ class Navigation extends Component {
 			clearInterval(this.timer);
 		}
 
+		const self = this;
 		function step() {
 			var yScroll;
 			var elapsed = Date.now() - startTime;
 
 			if (elapsed > settings.duration) {
-				clearTimeout(this.timer);
+				clearTimeout(self.timer);
 			}
 
 			percentage = elapsed / settings.duration;
 
 			if (percentage > 1) {
-				clearTimeout(this.timer);
+				clearTimeout(self.timer);
 
 				if (callback) {
 					callback();
@@ -102,20 +143,26 @@ class Navigation extends Component {
 			} else {
 				yScroll = settings.easing.outQuint(0, elapsed, offset, targetY, settings.duration);
 				window.scrollTo(0, yScroll);
-				this.timer = setTimeout(step, 10);
+				self.timer = setTimeout(step, 10);
 			}
 		}
 
 		this.timer = setTimeout(step, 10);
 	}
 
-	clickNavigation(event, id, callback) {
+	clickSiteNavigation(event) {
+		this.setState({
+			navigationExpanded: false
+		});
+	}
+
+	clickPageNavigation(event, id, callback) {
 		event.preventDefault();
 
 		this.setState({
 			navigationExpanded: false
 		});
-		
+
 		const navNode = document.getElementById("mainNavbar");
 		const navNodeHeight = navNode.offsetHeight;
 
@@ -132,19 +179,42 @@ class Navigation extends Component {
 		const {
 			atTop,
 			navigationExpanded,
-			activeNavigationItem
+			activePageNavigationItem,
+			arrowPosition
 		} = this.state;
-		const { menuItems } = this.props;
+		const { menuItems, location } = this.props;
 
 		const menuEntries = [];
+		const pageMenuEntries = [];
 		menuItems.forEach(element => {
-			const active = activeNavigationItem === element.id
 			menuEntries.push(
-				<li key={element.id} className={active ? "active" : ""}>
-					<a onClick={(e) => this.clickNavigation(e, element.id)} href={"#" + element.id}>{element.name}</a>
+				<li key={element.id}>
+					<NavLink exact to={element.url} onClick={(e) => this.clickSiteNavigation(e)}>{element.name}</NavLink>
 				</li>
 			);
+			if (element.url === location.pathname) {
+				if (element.pageNav && element.pageNav.length) {
+					pageMenuEntries.push(
+						<li key="page-top">
+							<a onClick={(e) => this.clickPageNavigation(e, "page-top")} href="#page-top">Top</a>
+						</li>
+					);
+					element.pageNav.forEach(pn => {
+						const active = activePageNavigationItem === pn.id
+						pageMenuEntries.push(
+							<li key={pn.id} className={active ? "active" : ""}>
+								<a onClick={(e) => this.clickPageNavigation(e, pn.id)} href={"#" + pn.id}>{pn.name}</a>
+							</li>
+						)
+					});
+				}
+			}
 		});
+
+		let arrowElement = null;
+		if (arrowPosition) {
+			arrowElement = <div className="arrow" style={{ left: arrowPosition }}></div>;
+		}
 
 		return (
 			<nav id="mainNav" className={"navbar navbar-default navbar-fixed-top " + (atTop ? "affix-top" : "affix")}>
@@ -156,11 +226,17 @@ class Navigation extends Component {
 							<span className="icon-bar"></span>
 							<span className="icon-bar"></span>
 						</button>
-						<a onClick={(e) => this.clickNavigation(e, "page-top")} className="navbar-brand page-scroll" href="#page-top">Alexander Krivács Schrøder</a>
+						<NavLink exact to="/" onClick={(e) => this.clickSiteNavigation(e)} className="navbar-brand page-scroll">Alexander Krivács Schrøder</NavLink>
 					</div>
-					<div className={"collapse navbar-collapse " + (navigationExpanded ? "in" : "")}>
+					<div className={"site-navbar collapse navbar-collapse " + (navigationExpanded ? "in" : "")}>
 						<ul className="nav navbar-nav navbar-right">
 							{menuEntries}
+						</ul>
+					</div>
+					<div className={"page-navbar collapse navbar-collapse " + (navigationExpanded ? "in" : "")}>
+						{arrowElement}
+						<ul className="nav navbar-nav">
+							{pageMenuEntries}
 						</ul>
 					</div>
 				</div>
@@ -170,4 +246,4 @@ class Navigation extends Component {
 	}
 }
 
-export default Navigation;
+export default withRouter(Navigation);
