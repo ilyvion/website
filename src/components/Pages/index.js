@@ -1,2 +1,7 @@
 import Main from './Main';
-export { Main };
+import Links from './Links';
+
+export {
+	Main,
+	Links
+};

@@ -6,6 +6,7 @@ import Header from '../Header';
 import Section, { CenteredSection } from '../Section';
 import ListGroup from '../ListGroup';
 import IconLink from '../IconLink';
+import PoweredByReact from '../PoweredByReact';
 
 const Main = () => {
 
@@ -125,10 +126,7 @@ const Main = () => {
 				<IconLink color="black" href="/alexschrod.asc" icon="key-modern" text="PGP Key" />
 				<IconLink color="black" href="https://keybase.io/alexschrod" icon="keybase" text="Keybase" />
 			</CenteredSection>
-			<CenteredSection>
-				<hr className="primary" />
-				<IconLink columnSize={12} color="black" href="https://reactjs.org/" icon="react" text="Powered by React" />
-			</CenteredSection>
+			<PoweredByReact />
 		</div>
 	);
 };

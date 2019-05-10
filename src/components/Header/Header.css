@@ -12,6 +12,18 @@ header {
 	-o-background-size: cover;
 }
 
+header.small {
+	background: #222;
+	position: static;
+	width: 100%;
+	min-height: 50px;
+	max-height: 50px;
+}
+
+header.small * {
+	display: none;
+}
+
 header .header-content {
 	position: relative;
 	width: 100%;

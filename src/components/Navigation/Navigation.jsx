@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router";
 import { NavLink } from "react-router-dom";
 
+import * as Constants from '../../constants';
+
 import Progress from '../Progress'
 
 import './Navigation.css';
@@ -216,6 +218,12 @@ class Navigation extends Component {
 			arrowElement = <div className="arrow" style={{ left: arrowPosition }}></div>;
 		}
 
+		// Kludge to get transparent page navigation on main page
+		let pageNavbarExtra = "";
+		if (location.pathname === Constants.PageUrls.Main) {
+			pageNavbarExtra = " main-page";
+		}
+
 		return (
 			<nav id="mainNav" className={"navbar navbar-default navbar-fixed-top " + (atTop ? "affix-top" : "affix")}>
 				<div className="container-fluid">
@@ -228,12 +236,12 @@ class Navigation extends Component {
 						</button>
 						<NavLink exact to="/" onClick={(e) => this.clickSiteNavigation(e)} className="navbar-brand page-scroll">Alexander Krivács Schrøder</NavLink>
 					</div>
-					<div className={"site-navbar collapse navbar-collapse " + (navigationExpanded ? "in" : "")}>
+					<div className={"site-navbar collapse navbar-collapse" + (navigationExpanded ? " in" : "")}>
 						<ul className="nav navbar-nav navbar-right">
 							{menuEntries}
 						</ul>
 					</div>
-					<div className={"page-navbar collapse navbar-collapse " + (navigationExpanded ? "in" : "")}>
+					<div className={"page-navbar collapse navbar-collapse" + (navigationExpanded ? " in" : "") + pageNavbarExtra}>
 						{arrowElement}
 						<ul className="nav navbar-nav">
 							{pageMenuEntries}

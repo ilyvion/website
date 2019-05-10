@@ -54,6 +54,10 @@ p {
 	line-height: 1.5;
 }
 
+abbr {
+	text-decoration: none;
+}
+
 .bg-primary {
 	background-color: var(--theme-color);
 }

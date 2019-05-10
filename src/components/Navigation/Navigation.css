@@ -76,7 +76,7 @@
 	.page-navbar {
 		position: fixed;
 		right: 0;
-		background-color: transparent;
+		background-color: #242424;
 		border-left: 1px solid rgba(255, 255, 255, .3);
 		border-bottom: 1px solid rgba(255, 255, 255, .3);
 		-webkit-transition: all .35s;
@@ -84,6 +84,9 @@
 		transition: all .35s;
 
 		border-color: rgba(255, 255, 255, .3) !important;
+	}
+	.page-navbar.main-page {
+		background-color: transparent;
 	}
 	.affix .page-navbar {
 		background-color: #fff;

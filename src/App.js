@@ -10,7 +10,7 @@ import * as Constants from './constants';
 import ScrollToTop from './components/ScrollToTop';
 import Navigation from './components/Navigation';
 
-import { Main } from './components/Pages';
+import { Main, Links } from './components/Pages';
 
 class App extends Component {
 	render() {
@@ -28,9 +28,15 @@ class App extends Component {
 									{ id: 'contact', name: 'Contact' }
 								]
 							},
+							{
+								id: 'links', url: Constants.PageUrls.Links, name: 'Links', pageNav: [
+									{ id: 'webcomics', name: 'Web Comics' }
+								]
+							}
 						]} />
 						<div className="content" style={{ height: '100%' }}>
 							<Route exact path={Constants.PageUrls.Main} component={Main} />
+							<Route exact path={Constants.PageUrls.Links} component={Links} />
 						</div>
 					</div>
 				</ScrollToTop>

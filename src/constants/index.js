@@ -1,5 +1,6 @@
 export const PageUrls = {
-	Main: '/'
+	Main: '/',
+	Links: '/links'
 };
 	
 export const StartingProgrammingYear = 1995;
