@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import './App.css';
 
+import ScrollToTop from './components/ScrollToTop';
 import Navigation from './components/Navigation';
 
 import { Main } from './components/Pages';
@@ -13,6 +14,7 @@ class App extends Component {
 	render() {
 		return (
 			<BrowserRouter>
+				<ScrollToTop>
 				<div id="app">
 					<Navigation menuItems={[
 						{
@@ -29,6 +31,7 @@ class App extends Component {
 						<Route exact path="/" component={Main} />
 					</div>
 				</div>
+				</ScrollToTop>
 			</BrowserRouter>
 		);
 	}
