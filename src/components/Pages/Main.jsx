@@ -1,5 +1,7 @@
 import React from 'react';
 
+import * as Constants from '../../constants';
+
 import Header from '../Header';
 import Section, { CenteredSection } from '../Section';
 import ListGroup from '../ListGroup';
@@ -10,11 +12,8 @@ const Main = () => {
 	const currentDate = new Date();
 	const currentYear = currentDate.getFullYear();
 	
-	const startingProgrammingYear = 1995;
-	const startingProfessionallyYear = 2007;
-	
-	const programmingFor = currentYear - startingProgrammingYear;
-	const professionallyFor = currentYear - startingProfessionallyYear;
+	const programmingFor = currentYear - Constants.StartingProgrammingYear;
+	const professionallyFor = currentYear - Constants.StartingProgrammingProfessionallyYear;
 
 	return (
 		<div style={{height: '100%'}}>
@@ -27,7 +26,8 @@ const Main = () => {
 					and I have since learned a large body of languages and technologies.
 					My main goal is to become as good a software developer as I can,
 					in order to produce high-quality reliable software as quickly as possible.
-					As of {currentYear}, I have been programming for {programmingFor} years; {professionallyFor} years professionally.
+					As of {currentYear}, I have been programming for {programmingFor} years;
+					{professionallyFor} years professionally.
 				</p>
 				<p>
 					I'm highly passionate about software development, and I do my best to use good

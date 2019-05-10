@@ -5,6 +5,8 @@ import {
 } from "react-router-dom";
 import './App.css';
 
+import * as Constants from './constants';
+
 import ScrollToTop from './components/ScrollToTop';
 import Navigation from './components/Navigation';
 
@@ -15,22 +17,22 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<ScrollToTop>
-				<div id="app">
-					<Navigation menuItems={[
-						{
-							id: 'main', url: '/', name: 'Main', pageNav: [
-								{ id: 'about', name: 'About' },
-								{ id: 'skills', name: 'Skills' },
-								{ id: 'code', name: 'Code' },
-								{ id: 'social', name: 'Social' },
-								{ id: 'contact', name: 'Contact' }
-							]
-						}
-					]} />
-					<div className="content" style={{ height: '100%' }}>
-						<Route exact path="/" component={Main} />
+					<div id="app">
+						<Navigation menuItems={[
+							{
+								id: 'main', url: Constants.PageUrls.Main, name: 'Main', pageNav: [
+									{ id: 'about', name: 'About' },
+									{ id: 'skills', name: 'Skills' },
+									{ id: 'code', name: 'Code' },
+									{ id: 'social', name: 'Social' },
+									{ id: 'contact', name: 'Contact' }
+								]
+							},
+						]} />
+						<div className="content" style={{ height: '100%' }}>
+							<Route exact path={Constants.PageUrls.Main} component={Main} />
+						</div>
 					</div>
-				</div>
 				</ScrollToTop>
 			</BrowserRouter>
 		);
