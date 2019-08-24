@@ -80,6 +80,7 @@ const Main = () => {
 					<ListGroup values={[
 						'Java',
 						'Node.js',
+						'Rust',
 						'C',
 						'PHP',
 						'Python',
