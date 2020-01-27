@@ -15,6 +15,7 @@ const Links = () => (
 			<ul>
 				<li><a href="https://questionablecontent.net/">Questionable Content</a> <i class="fa fa-star" aria-hidden="true"></i></li>
 				<li><a href="https://grrlpowercomic.com/">Grrl Power</a> <i class="fa fa-star" aria-hidden="true"></i></li>
+				<li><a href="http://www.dumbingofage.com/">Dumbing of Age</a> <i class="fa fa-star" aria-hidden="true"></i></li>
 				<li><a href="https://flakypastry.runningwithpencils.com/">Flaky Pastry</a></li>
 				<li><a href="https://lawcomic.net/">The Illustrated Guide to Law</a></li>
 				<li><a href="https://ohumanstar.com/">O Human Star</a></li>
