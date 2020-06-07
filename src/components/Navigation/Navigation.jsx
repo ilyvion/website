@@ -28,7 +28,7 @@ class Navigation extends Component {
 
 	componentDidMount() {
 		window.addEventListener('scroll', (e) => this.handleScroll(e));
-		this.onRouteChanged();
+		window.addEventListener('load', () => this.onRouteChanged());
 	}
 
 	componentWillUnmount() {
