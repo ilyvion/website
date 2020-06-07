@@ -19,8 +19,8 @@ pipeline {
         }
 
         stage('Deploy') {
-			 when {
-				branch 'build'
+			when {
+				branch 'master'
 			}
             steps {
 				sh 'rsync -av --delete --exclude alexschrod.asc --exclude keybase.txt --exclude phpmyadmin build/ /var/www/html'
