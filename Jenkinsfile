@@ -20,8 +20,10 @@ pipeline {
 
         stage('Deploy') {
 			when {
-				branch 'master'
-			}
+				expression {
+					return env.GIT_BRANCH == "origin/build"
+				}
+			} 
             steps {
 				sh 'rsync -av --delete --exclude alexschrod.asc --exclude keybase.txt --exclude phpmyadmin build/ /var/www/html'
             }
