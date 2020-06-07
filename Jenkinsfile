@@ -6,6 +6,7 @@ pipeline {
             steps {
 				sh 'npm install'
                 sh 'npm run-script build'
+            	archiveArtifacts artifacts: 'build/**/*', fingerprint: true
             }
         }
 
@@ -25,14 +26,8 @@ pipeline {
 				}
 			} 
             steps {
-				sh 'rsync -av --delete --exclude alexschrod.asc --exclude keybase.txt --exclude phpmyadmin build/ /var/www/html'
+				sh 'rsync -av --delete --exclude-from=/var/www/html/protect-files --dry-run build/ /var/www/html'
             }
-        }
-    }
-
-    post {
-        always {
-            archiveArtifacts artifacts: 'build/**/*', fingerprint: true
         }
     }
 }

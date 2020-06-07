@@ -1,0 +1,3 @@
+RewriteEngine On
+
+RewriteRule ^links$ index.html [QSA,L]
