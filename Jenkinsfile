@@ -19,8 +19,11 @@ pipeline {
         }
 
         stage('Deploy') {
+			 when {
+				branch 'build'
+			}
             steps {
-				sh 'rsync -av --delete --exclude alexschrod.asc --exclude keybase.txt --exclude phpmyadmin --dry-run build/ /var/www/html'
+				sh 'rsync -av --delete --exclude alexschrod.asc --exclude keybase.txt --exclude phpmyadmin build/ /var/www/html'
             }
         }
     }
