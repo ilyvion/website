@@ -26,7 +26,7 @@ pipeline {
 				}
 			} 
             steps {
-				sh 'rsync -av --delete --exclude-from=/var/www/html/protect-files --dry-run build/ /var/www/html'
+				sh 'rsync -av --delete --exclude-from=/var/www/html/protect-files build/ /var/www/html'
             }
         }
     }
