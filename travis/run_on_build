@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-openssl aes-256-cbc -K $encrypted_01cc6a1a3013_key -iv $encrypted_01cc6a1a3013_iv -in secrets.tar.enc -out /tmp/secrets.tar -d
-tar xf /tmp/secrets.tar -C /tmp/
-echo '|1|Il36pyxt1TMM6dzADSCK93o8MKI=|uWxC+bkNtxbbtqhrshOQ2tcqvNQ= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCBFmGecmr46sTaEXpcEkkByRNOKUcN8sCitu0qWP5+NWqi5CHwrFz4mngGCw77bdDP/pN/N00NbF6JOuTJpdfE=' >> $HOME/.ssh/known_hosts
-eval "$(ssh-agent -s)"
-chmod 600 /tmp/deploy_rsa
-ssh-add /tmp/deploy_rsa
-rsync -rlt -vz --delete-after -i ./build/ ${DEPLOY_USER}@alexanderschroeder.net:${DEPLOY_PATH}
