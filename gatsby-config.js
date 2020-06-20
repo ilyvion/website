@@ -10,8 +10,16 @@ module.exports = {
     author: `Alexander Krivács Schrøder`,
     siteUrl: `https://alexanderschroeder.net`,
     description: `Highly passionate software developer in Oslo, Norway`,
+    code: {
+      github: `alexschrod`,
+      stackoverflow: { id: 161250, name: `alex` },
+      bitbucket: `alexschrod`,
+    },
     social: {
+      email: `alexschrod@gmail.com`,
       twitter: `ilyvion`,
+      facebook: `alexander.schroder`,
+      linkedin: `alexanderschroder`,
     },
     years: {
       startingProgrammingYear: 1995,

@@ -140,19 +140,19 @@ export default function Home({ data, path }) {
         <br />
         <IconLink
           color="white"
-          href="https://github.com/alexschrod"
+          href={`https://github.com/${data.site.siteMetadata.code.github}`}
           icon="github"
           text="Github"
         />
         <IconLink
           color="white"
-          href="https://stackoverflow.com/users/161250/alex"
+          href={`https://stackoverflow.com/users/${data.site.siteMetadata.code.stackoverflow.id}/${data.site.siteMetadata.code.stackoverflow.name}`}
           icon="stack-overflow"
           text="Stack Overflow"
         />
         <IconLink
           color="white"
-          href="https://bitbucket.org/alexschrod"
+          href={`https://bitbucket.org/${data.site.siteMetadata.code.bitbucket}`}
           icon="bitbucket"
           text="Bitbucket"
         />
@@ -163,19 +163,19 @@ export default function Home({ data, path }) {
         <br />
         <IconLink
           color="white"
-          href="https://www.linkedin.com/in/alexanderschroder/"
+          href={`https://www.linkedin.com/in/${data.site.siteMetadata.social.linkedin}/`}
           icon="linkedin"
           text="LinkedIn"
         />
         <IconLink
           color="white"
-          href="https://www.facebook.com/alexander.schroder"
+          href={`https://www.facebook.com/${data.site.siteMetadata.social.facebook}`}
           icon="facebook"
           text="Facebook"
         />
         <IconLink
           color="white"
-          href="https://twitter.com/alexschrod"
+          href={`https://twitter.com/${data.site.siteMetadata.social.twitter}`}
           icon="twitter"
           text="Twitter"
         />
@@ -185,9 +185,9 @@ export default function Home({ data, path }) {
         <hr className="primary" />
         <IconLink
           color="black"
-          href="mailto:alexschrod@gmail.com"
+          href={`mailto:${data.site.siteMetadata.social.email}`}
           icon="envelope"
-          text="alexschrod@gmail.com"
+          text={data.site.siteMetadata.social.email}
         />
         <IconLink
           color="black"
@@ -210,6 +210,20 @@ export const query = graphql`
   query {
     site {
       siteMetadata {
+        code {
+          github
+          stackoverflow {
+            id
+            name
+          }
+          bitbucket
+        }
+        social {
+          email
+          twitter
+          facebook
+          linkedin
+        }
         years {
           startingProgrammingYear
           startingProgrammingProfessionallyYear
