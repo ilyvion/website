@@ -47,7 +47,8 @@ export default function Home({ data, path }) {
             rel="noopener noreferrer"
             href="http://www.uio.no/"
           >
-            the University of Oslo
+            the University of Oslo{" "}
+            <i className="fa fa-external-link" aria-hidden="true"></i>
           </a>
           .
         </p>
@@ -87,7 +88,8 @@ export default function Home({ data, path }) {
               "HTML5",
               "CSS3",
               "GraphQL",
-              "React",
+              "ReactJS",
+              "GatsbyJS",
               "AngularJS / Angular",
               "jQuery",
               "Bootstrap",

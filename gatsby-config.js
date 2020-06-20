@@ -40,7 +40,7 @@ module.exports = {
       },
       {
         id: "links",
-        link: "/links",
+        link: "/links/",
         name: "Links",
         pageNavs: [{ id: "webcomics", name: "Web Comics" }],
       },

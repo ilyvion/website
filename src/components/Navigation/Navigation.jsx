@@ -14,8 +14,8 @@ class Navigation extends Component {
       activePageNavigationItem: null,
       arrowCalculationInProgress: false,
       arrowPosition: null,
-	}
-	this.mainNavbarRef = React.createRef();
+    }
+    this.mainNavbarRef = React.createRef()
   }
 
   componentDidUpdate(prevProps) {
@@ -51,6 +51,12 @@ class Navigation extends Component {
 
   calculateArrowPosition() {
     const activePage = document.querySelector(".site-navbar .active")
+    if (!activePage) {
+      console.warn(
+        "The current page is missing from the navigation; cannot calculate arrow position"
+      )
+      return
+    }
     const activePageRect = activePage.getBoundingClientRect()
     const activePageLinkPos = activePageRect.x + activePageRect.width / 2
 
@@ -67,7 +73,7 @@ class Navigation extends Component {
 
     const scrollTop = document.scrollingElement.scrollTop
 
-    const navNode = this.mainNavbarRef.current;
+    const navNode = this.mainNavbarRef.current
     const navNodeHeight = navNode.offsetHeight
 
     let activePageNavigationItem = null
@@ -267,7 +273,11 @@ class Navigation extends Component {
         }
       >
         <div className="container-fluid">
-          <div id="mainNavbar" className="navbar-header" ref={this.mainNavbarRef}>
+          <div
+            id="mainNavbar"
+            className="navbar-header"
+            ref={this.mainNavbarRef}
+          >
             <button
               type="button"
               className="navbar-toggle collapsed"

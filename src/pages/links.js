@@ -18,36 +18,61 @@ const Links = ({ path }) => (
       </h3>
       <ul>
         <li>
-          <a href="https://questionablecontent.net/">Questionable Content</a>{" "}
+          <a href="https://questionablecontent.net/">
+            Questionable Content{" "}
+            <i className="fa fa-external-link" aria-hidden="true"></i>
+          </a>{" "}
           <i className="fa fa-star" aria-hidden="true"></i>
         </li>
         <li>
-          <a href="https://grrlpowercomic.com/">Grrl Power</a>{" "}
+          <a href="https://grrlpowercomic.com/">
+            Grrl Power{" "}
+            <i className="fa fa-external-link" aria-hidden="true"></i>
+          </a>{" "}
           <i className="fa fa-star" aria-hidden="true"></i>
         </li>
         <li>
-          <a href="https://dumbingofage.com/">Dumbing of Age</a>{" "}
+          <a href="https://dumbingofage.com/">
+            Dumbing of Age{" "}
+            <i className="fa fa-external-link" aria-hidden="true"></i>
+          </a>{" "}
           <i className="fa fa-star" aria-hidden="true"></i>
         </li>
         <li>
-          <a href="https://flakypastry.runningwithpencils.com/">Flaky Pastry</a>
-        </li>
-        <li>
-          <a href="https://lawcomic.net/">The Illustrated Guide to Law</a>
-        </li>
-        <li>
-          <a href="https://ohumanstar.com/">O Human Star</a>
-        </li>
-        <li>
-          <a href="http://girlgeniusonline.com/">Girl Genius</a>
-        </li>
-        <li>
-          <a href="https://smbc-comics.com/">
-            SMBC: Saturday Morning Breakfast Cereal
+          <a href="https://flakypastry.runningwithpencils.com/">
+            Flaky Pastry{" "}
+            <i className="fa fa-external-link" aria-hidden="true"></i>
           </a>
         </li>
         <li>
-          <a href="https://theoatmeal.com/">The Oatmeal</a>
+          <a href="https://lawcomic.net/">
+            The Illustrated Guide to Law{" "}
+            <i className="fa fa-external-link" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://ohumanstar.com/">
+            O Human Star{" "}
+            <i className="fa fa-external-link" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="http://girlgeniusonline.com/">
+            Girl Genius{" "}
+            <i className="fa fa-external-link" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://smbc-comics.com/">
+            SMBC: Saturday Morning Breakfast Cereal{" "}
+            <i className="fa fa-external-link" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://theoatmeal.com/">
+            The Oatmeal{" "}
+            <i className="fa fa-external-link" aria-hidden="true"></i>
+          </a>
         </li>
       </ul>
       <h3>
@@ -55,17 +80,27 @@ const Links = ({ path }) => (
       </h3>
       <ul>
         <li>
-          <a href="https://buttsmithy.com/">Alfie</a>{" "}
+          <a href="https://buttsmithy.com/">
+            Alfie <i className="fa fa-external-link" aria-hidden="true"></i>
+          </a>{" "}
           <i className="fa fa-star" aria-hidden="true"></i>
         </li>
         <li>
-          <a href="https://oglaf.com/">Oglaf</a>
+          <a href="https://oglaf.com/">
+            Oglaf <i className="fa fa-external-link" aria-hidden="true"></i>
+          </a>
         </li>
         <li>
-          <a href="https://ohjoysextoy.com/">Oh Joy Sex Toy</a>
+          <a href="https://ohjoysextoy.com/">
+            Oh Joy Sex Toy{" "}
+            <i className="fa fa-external-link" aria-hidden="true"></i>
+          </a>
         </li>
         <li>
-          <a href="http://www.therockcocks.com/">The Rock Cocks</a>
+          <a href="http://www.therockcocks.com/">
+            The Rock Cocks{" "}
+            <i className="fa fa-external-link" aria-hidden="true"></i>
+          </a>
         </li>
       </ul>
     </Section>
