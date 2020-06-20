@@ -3,16 +3,32 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "moment": "^2.24.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^1.1.5"
+    "gatsby": "^2.23.3",
+    "gatsby-plugin-manifest": "^2.4.12",
+    "gatsby-plugin-offline": "^3.2.11",
+    "gatsby-plugin-react-helmet": "^3.3.4",
+    "gatsby-plugin-react-helmet-canonical-urls": "^1.4.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.1.0"
+  },
+  "devDependencies": {
+    "prettier": "2.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexschrod/website"
+  },
+  "bugs": {
+    "url": "https://github.com/alexschrod/website/issues"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   }
 }

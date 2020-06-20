@@ -1,2 +1,2 @@
-import IconLink from './IconLink';
-export default IconLink;
+import IconLink from "./IconLink"
+export default IconLink
