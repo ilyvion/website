@@ -1,0 +1,61 @@
+==================================================================
+https://keybase.io/alexschrod
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://alexanderschroeder.net
+  * I am alexschrod (https://keybase.io/alexschrod) on keybase.
+  * I have a public key with fingerprint 1BE5 FDEA 8A8F B5F0 5268  8A1E 2E97 83DE A6A6 2F58
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "1be5fdea8a8fb5f052688a1e2e9783dea6a62f58",
+            "host": "keybase.io",
+            "key_id": "2e9783dea6a62f58",
+            "kid": "01117fc641a5911bea46f7256e84190ac39d368726dc83d011ad3e4223a1f75ac2b80a",
+            "uid": "262a17c28a27ff80b68037318387c200",
+            "username": "alexschrod"
+        },
+        "service": {
+            "hostname": "alexanderschroeder.net",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1421252218,
+    "expire_in": 157680000,
+    "prev": "6718c48de6485a15e60f3f225bb2fb8e2d368659409c0c4d5f449cffa64f8de2",
+    "seqno": 2,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.1
+Comment: https://keybase.io/crypto
+
+yMEdAnicbZI7bxQxEICXRxCciCB/wRISxelie22vdwtKikhQpYhEcfJjfGddsnvs
+7h0JUZQCCSqggzJdWirSg+giUUWUSPRI9FSMD5AocGN7/M039sif1q9kg43R22df
+T083dy6df3iwyLbP3jw9JLbxB6Q6JDNYTSHWE2jnbax7UhFmQQYPRhsdrAxUcqW1
+YcChLHSOB8ooHqQmQzJtupSBGms6GMUGY7gZR4/R//Cz1QFljBXBKcGMLBmWM0KF
+gksFWrCSGpeXPle64Mo7FCBufA6C89ywUEjjuNXUoG7xu47ihhWOa8OLEDS1StO8
+yJnONUYpTWAHbW32AGmzC/udm7aNJ0dDgvFldJCakN7yD2NqD+0KBFyMaujRM2+b
+vnHNLjLTvp93VXL0B/OU9ATs+I9ubGPtsaeYsURJbGpSMSRdH5OfCc645JzpIYH9
+eWxhHBMhC7w5jlQHlqhUBdNOaA9KaGmYBEVDHjiX1vJgNfDUJiVLQUtHnfAyCFG6
+EIwSAbM4SQ98XDek4nhNM0FlFye16RctkKOP969mG4Ps2trl9CmywY3bf7/K+ovs
+5KHYPP9xs/55/fW74+M7s5cXt75sZSePXu2Yb+/vkdnW8+9nd7c/r7G9i19adcFL
+=GkId
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/alexschrod
+
+==================================================================

@@ -1,4 +1,6 @@
 <Files "protect-files">
-Order allow,deny
-Deny from all
+  Order allow,deny
+  Deny from all
 </Files>
+
+Header always set Content-Security-Policy "default-src 'self'; font-src 'self' https://fonts.gstatic.com:* https://stackpath.bootstrapcdn.com:* https://cdn.jsdelivr.net:*; style-src 'self' https://fonts.googleapis.com:* https://stackpath.bootstrapcdn.com:* https://cdn.jsdelivr.net:*"

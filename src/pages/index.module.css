@@ -1,0 +1,20 @@
+.blogPreview {
+  color: inherit;
+  cursor: pointer;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+  border-left-color: #4075f0;
+  text-decoration: none !important;
+
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, white 50%, #4075f0 50%);
+  transition: background-position 1s, color 1s;
+}
+
+.blogPreview:hover {
+  background-position: -100% 0;
+  color: white;
+}

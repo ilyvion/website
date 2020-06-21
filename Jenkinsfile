@@ -6,7 +6,7 @@ pipeline {
             steps {
 				sh 'npm install'
                 sh 'npm run-script build'
-            	archiveArtifacts artifacts: 'build/**/*', fingerprint: true
+            	archiveArtifacts artifacts: 'public/**/*', fingerprint: true
             }
         }
 
@@ -26,7 +26,7 @@ pipeline {
 				}
 			} 
             steps {
-				sh 'rsync -av --delete --exclude-from=/var/www/html/protect-files build/ /var/www/html'
+				sh 'rsync -av --delete --exclude-from=/var/www/html/protect-files public/ /var/www/html'
             }
         }
     }

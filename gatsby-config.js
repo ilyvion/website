@@ -31,6 +31,7 @@ module.exports = {
         link: "/",
         name: "Main",
         pageNavs: [
+          { id: "blog", name: "Blog" },
           { id: "about", name: "About" },
           { id: "skills", name: "Skills" },
           { id: "code", name: "Code" },
@@ -47,6 +48,94 @@ module.exports = {
     ],
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          "gatsby-remark-code-titles",
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
+          `gatsby-plugin-sitemap`,
+          `gatsby-remark-numbered-footnotes`,
+        ],
+      },
+    },
+    `gatsby-remark-reading-time`,
+    {
+      resolve: `gatsby-plugin-feed-mdx`,
+      options: {
+        query: `
+			{
+			  site {
+				siteMetadata {
+				  title
+				  description
+				  siteUrl
+				  site_url: siteUrl
+				}
+			  }
+			}
+		  `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url:
+                    site.siteMetadata.siteUrl + "/blog" + edge.node.fields.slug,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                })
+              })
+            },
+            query: `
+				{
+				  allMdx(
+					sort: { order: DESC, fields: [frontmatter___date] },
+				  ) {
+					edges {
+					  node {
+						excerpt
+						html
+						fields { slug }
+						frontmatter {
+						  title
+						  date
+						}
+					  }
+					}
+				  }
+				}
+			  `,
+            output: "/blog/rss.xml",
+            title: "Alexander Krivács Schrøder's Blog RSS Feed",
+          },
+        ],
+      },
+    },
+    `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
@@ -76,5 +165,19 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@src": "src",
+          "@components": "src/components",
+          "@pages": "src/pages",
+          "@templates": "src/templates",
+          "@assets": "content/assets",
+        },
+        extensions: ["js"],
+      },
+    },
+    `gatsby-plugin-force-trailing-slashes`,
   ],
 }

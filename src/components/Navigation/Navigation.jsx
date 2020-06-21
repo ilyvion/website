@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 
-import Progress from "../Progress"
+import Progress from "@components/Progress"
 
 import "./Navigation.css"
 
@@ -74,6 +74,9 @@ class Navigation extends Component {
     const scrollTop = document.scrollingElement.scrollTop
 
     const navNode = this.mainNavbarRef.current
+    if (!navNode) {
+      return
+    }
     const navNodeHeight = navNode.offsetHeight
 
     let activePageNavigationItem = null
@@ -250,6 +253,13 @@ class Navigation extends Component {
         }
       }
     })
+    menuEntries.push(
+      <li key="blog">
+        <Link to="/blog/" activeClassName="active" partiallyActive={true}>
+          Blog
+        </Link>
+      </li>
+    )
 
     let arrowElement = null
     if (arrowPosition) {

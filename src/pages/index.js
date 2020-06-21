@@ -1,11 +1,16 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+import moment from "moment"
 
-import Layout from "../components/layout"
-import Header from "../components/Header"
-import Section, { CenteredSection } from "../components/Section"
-import ListGroup from "../components/ListGroup"
-import IconLink from "../components/IconLink"
+import Layout from "@components/layout"
+import SEO from "@components/seo"
+import Header from "@components/Header"
+import Section, { CenteredSection } from "@components/Section"
+import ListGroup from "@components/ListGroup"
+import IconLink from "@components/IconLink"
+import ExternalLink from "@components/externalLink"
+
+import containerStyles from "./index.module.css"
 
 export default function Home({ data, path }) {
   const currentDate = new Date()
@@ -17,9 +22,49 @@ export default function Home({ data, path }) {
     currentYear -
     data.site.siteMetadata.years.startingProgrammingProfessionallyYear
 
+  let recentBlogPosts = data.allMdx.edges
+
+  recentBlogPosts = recentBlogPosts.map(e => (
+    <div className="col-sm-4" key={e.node.fields.slug}>
+      <Link
+        style={{ display: "block" }}
+        className={containerStyles.blogPreview}
+        to={`blog${e.node.fields.slug}`}
+      >
+        <h3>{e.node.frontmatter.title}</h3>
+        <p>
+          <span
+            title={moment(e.node.frontmatter.raw_date).format(
+              "MMMM DD, YYYY HH:mm"
+            )}
+          >
+            {e.node.frontmatter.date}
+          </span>{" "}
+          &nbsp; &middot; &nbsp;{` `}
+          {e.node.fields.readingTime.text}
+        </p>
+        <p>{e.node.excerpt}</p>
+      </Link>
+    </div>
+  ))
+
   return (
     <Layout path={path}>
+      <SEO title={data.site.siteMetadata.description} />
       <Header header="Hello, I'm Alex!" tagline="Software Developer" />
+      <Section id="blog">
+        <h2 className="section-heading text-center">
+          <Link to="/blog/">Recent blog posts</Link>
+        </h2>
+        <hr className="primary" />
+        <p className="text-center">
+          <Link to="/blog/tags/">Browse by tag</Link>&nbsp; &middot; &nbsp;Feed:{" "}
+          <Link to="/blog/rss.xml" title="RSS">
+            <i className="fa fa-rss" aria-hidden="true"></i>
+          </Link>
+        </p>
+        <div className="row">{recentBlogPosts}</div>
+      </Section>
       <CenteredSection className="bg-primary" id="about">
         <h2 className="section-heading">About Me</h2>
         <hr className="light" />
@@ -41,15 +86,9 @@ export default function Home({ data, path }) {
         </p>
         <p>
           Academically, I have a bachelor of computer science from{" "}
-          <a
-            className="white underline"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="http://www.uio.no/"
-          >
-            the University of Oslo{" "}
-            <i className="fa fa-external-link" aria-hidden="true"></i>
-          </a>
+          <ExternalLink className="white underline" to="http://www.uio.no/">
+            the University of Oslo
+          </ExternalLink>
           .
         </p>
         <blockquote>
@@ -131,6 +170,7 @@ export default function Home({ data, path }) {
               "Visual Studio",
               "Maven",
               "Travis CI",
+              "Jenkins",
               "LaTeX",
             ]}
           />
@@ -212,6 +252,7 @@ export const query = graphql`
   query {
     site {
       siteMetadata {
+        description
         code {
           github
           stackoverflow {
@@ -229,6 +270,24 @@ export const query = graphql`
         years {
           startingProgrammingYear
           startingProgrammingProfessionallyYear
+        }
+      }
+    }
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 3) {
+      edges {
+        node {
+          fields {
+            slug
+            readingTime {
+              text
+            }
+          }
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+            raw_date: date
+          }
+          excerpt
         }
       }
     }
