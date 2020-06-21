@@ -9,6 +9,7 @@ pipeline {
 		}
         stage('Build') {
             steps {
+				sh 'npm run-script clean'
                 sh 'npm run-script build'
             }
         }
@@ -22,6 +23,7 @@ pipeline {
         }
 		stage('Archive') {
             steps {
+				sh 'rm *.tar.bz2'
 				sh 'tar cjvf public-$(git rev-parse HEAD).tar.bz2 public'
 				archiveArtifacts artifacts: 'public-*.tar.bz2', fingerprint: true
 			}
