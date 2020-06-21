@@ -31,7 +31,7 @@ pipeline {
         stage('Deploy') {
 			when {
 				expression {
-					return env.GIT_BRANCH == "origin/build"
+					return env.GIT_BRANCH == "origin/master"
 				}
 			} 
             steps {
