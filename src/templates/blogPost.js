@@ -57,16 +57,14 @@ export default class BlogPostTemplate extends React.Component {
               Edit on GitHub
             </ExternalLink>
           </p>
-          <p>
-            Tagged as:{" "}
-            <ul className={containerStyles.tags}>
-              {tags.map(t => (
-                <li>
-                  <Link to={`/blog/tags/${kebabCase(t)}/`}>{"#" + t}</Link>
-                </li>
-              ))}
-            </ul>
-          </p>
+          <p className={containerStyles.taggedAs}>Tagged as: </p>
+          <ul className={containerStyles.tags}>
+            {tags.map(t => (
+              <li key={t}>
+                <Link to={`/blog/tags/${kebabCase(t)}/`}>{"#" + t}</Link>
+              </li>
+            ))}
+          </ul>
         </CenteredSection>
         <Section>
           <div className="col-lg-8 col-lg-offset-2">
