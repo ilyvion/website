@@ -21,8 +21,10 @@ pipeline {
             }
         }
 		stage('Archive') {
-			sh 'tar cjvf public-$(git rev-parse HEAD).tar.bz2 public'
-			archiveArtifacts artifacts: 'public-*.tar.bz2', fingerprint: true
+            steps {
+				sh 'tar cjvf public-$(git rev-parse HEAD).tar.bz2 public'
+				archiveArtifacts artifacts: 'public-*.tar.bz2', fingerprint: true
+			}
 		}
         stage('Deploy') {
 			when {
