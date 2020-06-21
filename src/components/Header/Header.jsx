@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import containerStyles from "./Header.module.css"
 import portrait from "./portrait.jpg"
 
@@ -19,6 +20,12 @@ const Header = ({ small, header, tagline }) => {
       </header>
     )
   }
+}
+
+Header.propTypes = {
+  small: PropTypes.bool,
+  header: PropTypes.string,
+  tagline: PropTypes.string,
 }
 
 export default Header
