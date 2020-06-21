@@ -47,9 +47,9 @@ const BlogList = ({ path, data, pageContext }) => {
         <hr className="primary" />
         <p>
           <Link to="/blog/tags/">Browse by tag</Link>&nbsp; &middot; &nbsp;Feed:{" "}
-          <Link to="/blog/rss.xml" title="RSS">
+          <a href="/blog/rss.xml" title="RSS">
             <i className="fa fa-rss" aria-hidden="true"></i>
-          </Link>
+          </a>
         </p>
       </CenteredSection>
       <Section>
