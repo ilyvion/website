@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="headerContent"
+  >
+    <div
+      className="headerContentInner"
+    >
+      <img
+        alt=""
+        className="imgCircle"
+        src="test-file-stub"
+      />
+      <h1
+        className="headerContentInnerH1"
+      >
+        Header
+      </h1>
+      <hr
+        className="headerContentInnerHr"
+      />
+      <span
+        className="btnBlue"
+      >
+        Tag Line
+      </span>
+    </div>
+  </div>
+</header>
+`;
+
+exports[`Header small renders correctly 1`] = `
+<header
+  className="headerSmall"
+/>
+`;

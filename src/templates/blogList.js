@@ -41,7 +41,7 @@ const BlogList = ({ path, data, pageContext }) => {
   return (
     <Layout path={path}>
       <SEO title={`Blog posts (page ${currentPage})`} />
-      <Header className="small" />
+      <Header small />
       <CenteredSection className="bg-primary">
         <h2 className="section-heading text-center">Blog posts</h2>
         <hr className="primary" />

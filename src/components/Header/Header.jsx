@@ -1,20 +1,24 @@
 import React from "react"
-import "./Header.css"
+import containerStyles from "./Header.module.css"
 import portrait from "./portrait.jpg"
 
-const Header = ({ className, header, tagline }) => {
-  return (
-    <header className={className}>
-      <div className="header-content">
-        <div className="header-content-inner">
-          <img className="img-circle img-responsive" src={portrait} alt="" />
-          <h1>{header}</h1>
-          <hr className="blue" />
-          <span className="btn-blue">{tagline}</span>
+const Header = ({ small, header, tagline }) => {
+  if (small) {
+    return <header className={containerStyles.headerSmall}></header>
+  } else {
+    return (
+      <header className={containerStyles.header}>
+        <div className={containerStyles.headerContent}>
+          <div className={containerStyles.headerContentInner}>
+            <img className={containerStyles.imgCircle} src={portrait} alt="" />
+            <h1 className={containerStyles.headerContentInnerH1}>{header}</h1>
+            <hr className={containerStyles.headerContentInnerHr} />
+            <span className={containerStyles.btnBlue}>{tagline}</span>
+          </div>
         </div>
-      </div>
-    </header>
-  )
+      </header>
+    )
+  }
 }
 
 export default Header

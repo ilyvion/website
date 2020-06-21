@@ -47,7 +47,7 @@ export default class TagTemplate extends React.Component {
           description={tagHeader}
           keywords={[tag, data.site.siteMetadata.author]}
         />
-        <Header className="small" />
+        <Header small />
         <CenteredSection className="bg-primary">
           <h2 className="section-heading">#{tag}</h2>
           <h3>{tagHeader}</h3>

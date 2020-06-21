@@ -1,10 +1,10 @@
-header {
+.header {
   position: relative;
   width: 100%;
   min-height: 100%;
   text-align: center;
   color: #fff;
-  background-image: url(header.jpg);
+  background-image: url(./header.jpg);
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -12,7 +12,8 @@ header {
   -o-background-size: cover;
 }
 
-header.small {
+.headerSmall {
+  composes: header;
   background: #222;
   position: static;
   width: 100%;
@@ -20,37 +21,54 @@ header.small {
   max-height: 50px;
 }
 
-header.small * {
-  display: none;
-}
-
-header .header-content {
+.headerContent {
   position: relative;
   width: 100%;
   padding: 100px 15px;
   text-align: center;
 }
 
-header .header-content .header-content-inner h1 {
+.headerContentInnerH1 {
   margin-top: 30px;
   margin-bottom: 0;
   font-weight: 700;
   font-size: 65px;
 }
 
-header .header-content .header-content-inner hr {
+.headerContentInnerHr {
+  composes: blue from global;
   margin: 30px auto;
 }
 
-header .header-content .header-content-inner p {
+.headerContentInner p {
   margin-bottom: 50px;
   font-size: 16px;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.7);
 }
 
+.imgCircle {
+  display: block;
+  margin: auto;
+  border-radius: 70%;
+  max-width: 280px;
+}
+
+.btnBlue {
+  padding: 15px 30px;
+  font-size: 2em;
+  border: 0;
+  border-radius: 300px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  background-color: #4075f0;
+  display: inline-block;
+  line-height: 1.42857143;
+}
+
 @media (min-width: 768px) {
-  header .header-content {
+  .headerContent {
     position: absolute;
     top: 50%;
     padding: 0 50px;
@@ -58,15 +76,12 @@ header .header-content .header-content-inner p {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
-  header .header-content .header-content-inner {
+  .headerContentInner {
     margin-right: auto;
     margin-left: auto;
     max-width: 1000px;
   }
-  header .header-content .header-content-inner p {
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 80%;
-    font-size: 18px;
+  .imgCircle {
+    max-width: 200px;
   }
 }

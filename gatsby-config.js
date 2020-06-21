@@ -4,15 +4,15 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-const generateIcons = (sizes) => {
-	return sizes.map(size => {
-	  return {
-		src: `favicons/icon-${size}x${size}.png`,
-		sizes: `${size}x${size}`,
-		type: "image/png",
-	  };
-	});
-  };
+const generateIcons = sizes => {
+  return sizes.map(size => {
+    return {
+      src: `favicons/icon-${size}x${size}.png`,
+      sizes: `${size}x${size}`,
+      type: "image/png",
+    }
+  })
+}
 
 module.exports = {
   siteMetadata: {
@@ -162,8 +162,8 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#4075f0`,
         display: `standalone`,
-		icon: `src/images/monogram-rendered.svg`,
-		icons: generateIcons([48, 72, 96, 144, 192, 256, 384, 512]),
+        icon: `src/images/monogram-rendered.svg`,
+        icons: generateIcons([48, 72, 96, 144, 192, 256, 384, 512]),
         lang: `en`,
         cache_busting_mode: "none",
       },
@@ -189,6 +189,6 @@ module.exports = {
         extensions: ["js"],
       },
     },
-	`gatsby-plugin-force-trailing-slashes`
+    `gatsby-plugin-force-trailing-slashes`,
   ],
 }

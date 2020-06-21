@@ -7,6 +7,12 @@
   --theme-tertiary-color: #4ac534;
 }
 
+html {
+  /* Anchor targets (#something) are offset by this much when triggered, which
+	   avoids them ending up under the fixed header */
+  scroll-padding-top: 51px;
+}
+
 * {
   font-family: "Titillium Web", serif;
   font-weight: 400;
@@ -22,7 +28,7 @@ body,
 
 hr {
   max-width: 50px;
-  border-color: --theme-color;
+  border-color: var(--theme-color);
   border-width: 3px;
 }
 
@@ -323,19 +329,6 @@ fieldset[disabled] .btn-primary.active {
   font-weight: 700;
 }
 
-.btn-blue {
-  padding: 15px 30px;
-  font-size: 2em;
-  border: 0;
-  border-radius: 300px;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #fff;
-  background-color: #4075f0;
-  display: inline-block;
-  line-height: 1.42857143;
-}
-
 .white {
   color: white;
 }
@@ -374,19 +367,6 @@ img::selection {
 img::-moz-selection {
   color: #fff;
   background: 0 0;
-}
-
-.img-circle {
-  display: block;
-  margin: auto;
-  border-radius: 70%;
-  max-width: 280px;
-}
-
-@media (max-width: 480px) {
-  .img-circle {
-    max-width: 200px;
-  }
 }
 
 body {

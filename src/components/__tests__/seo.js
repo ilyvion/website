@@ -24,9 +24,7 @@ const data = {
 
 describe("SEO", () => {
   it("sets expected default values", () => {
-    mount(
-      <PureSEO title={pageTitle} site={data.site} />
-    )
+    mount(<PureSEO title={pageTitle} site={data.site} />)
     const helmet = Helmet.peek()
 
     expect(helmet.htmlAttributes.lang).toBe(PureSEO.defaultProps.lang)
@@ -90,9 +88,7 @@ describe("SEO", () => {
   })
 
   it("overrides lang", () => {
-    mount(
-      <PureSEO title={pageTitle} lang={pageLang} site={data.site} />
-    )
+    mount(<PureSEO title={pageTitle} lang={pageLang} site={data.site} />)
     const helmet = Helmet.peek()
     expect(helmet.htmlAttributes.lang).toBe(pageLang)
   })

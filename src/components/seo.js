@@ -71,7 +71,7 @@ PureSEO.propTypes = {
   title: PropTypes.string.isRequired,
 }
 
-function SEO({ props }) {
+function SEO(props) {
   const { site } = useStaticQuery(
     graphql`
       query {

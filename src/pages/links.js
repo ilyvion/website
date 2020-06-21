@@ -12,7 +12,7 @@ const Links = ({ path }) => (
       title="Links"
       description="External sites that I recommend that you visit"
     />
-    <Header className="small" />
+    <Header small />
     <Section id="webcomics">
       <h2 className="section-heading text-center">Webcomics</h2>
       <hr className="primary" />

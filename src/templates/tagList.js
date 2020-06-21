@@ -30,7 +30,7 @@ const TagList = ({ path, data, pageContext }) => {
         title="Tags"
         description="List of all the tags used in my blog posts"
       />
-      <Header className="small" />
+      <Header small />
       <CenteredSection className="bg-primary">
         <h2 className="section-heading text-center">Tags</h2>
         <hr className="primary" />

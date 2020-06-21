@@ -30,7 +30,7 @@ export default class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
           keywords={tags}
         />
-        <Header className="small" />
+        <Header small />
         <CenteredSection className="bg-primary">
           <h2 className="section-heading">{postTitle}</h2>
           <hr className="primary" />
