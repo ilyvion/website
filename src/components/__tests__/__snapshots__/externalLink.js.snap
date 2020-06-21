@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExternalLink renders correctly 1`] = `
+<a
+  href="http://example.com/"
+>
+   
+  <i
+    aria-hidden="true"
+    className="fa fa-external-link"
+  />
+</a>
+`;
