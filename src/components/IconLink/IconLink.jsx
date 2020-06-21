@@ -1,17 +1,26 @@
 import React from "react"
-import "./IconLink.css"
+import PropTypes from "prop-types"
+import containerStyles from "./IconLink.module.css"
 
 const IconLink = ({ color, href, icon, text, columnSize }) => {
   columnSize = columnSize || 4
 
   return (
-    <a className={"icon-link " + color} href={href}>
+    <a className={`${containerStyles.iconLink} ${color}`} href={href}>
       <div className={"col-sm-" + columnSize}>
         <i className={"fa fa-" + icon + " fa-5x"}></i>
         <p>{text}</p>
       </div>
     </a>
   )
+}
+
+IconLink.propTypes = {
+  color: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  columnSize: PropTypes.number,
 }
 
 export default IconLink

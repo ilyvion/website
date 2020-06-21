@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconLink renders correctly 1`] = `
+<a
+  className="iconLink color"
+  href="href"
+>
+  <div
+    className="col-sm-4"
+  >
+    <i
+      className="fa fa-icon fa-5x"
+    />
+    <p>
+      text
+    </p>
+  </div>
+</a>
+`;
+
+exports[`IconLink renders correctly with custom columnSize 1`] = `
+<a
+  className="iconLink color"
+  href="href"
+>
+  <div
+    className="col-sm-6"
+  >
+    <i
+      className="fa fa-icon fa-5x"
+    />
+    <p>
+      text
+    </p>
+  </div>
+</a>
+`;
