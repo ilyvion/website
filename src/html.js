@@ -15,20 +15,14 @@ export default function HTML(props) {
           href="//fonts.googleapis.com/css?family=Titillium+Web|Inconsolata&amp;subset=latin,latin-ext"
           rel="stylesheet"
           type="text/css"
-          integrity="sha384-hKmR5U98EKz658GLz1jDX3ZLwtfIpsJBpQ3XvAVon4Gry4GUxhFQOgbRpi9O4GyU"
-          crossOrigin="anonymous"
         />
         <link
           rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossOrigin="anonymous"
         />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
-          integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY="
-          crossOrigin="anonymous"
         />
         {props.headComponents}
       </head>
