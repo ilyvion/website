@@ -47,6 +47,7 @@ export const query = graphql`
     tags: allMdx(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { draft: { ne: true } } }
     ) {
       group(field: frontmatter___tags) {
         fieldValue

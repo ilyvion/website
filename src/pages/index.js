@@ -273,7 +273,11 @@ export const query = graphql`
         }
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 3) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 3
+      filter: { frontmatter: { draft: { ne: true } } }
+    ) {
       edges {
         node {
           fields {
