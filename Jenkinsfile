@@ -2,14 +2,16 @@ pipeline {
     agent any
 
     stages {
+		stage('Install') {
+			steps {
+				sh 'npm install'
+			}
+		}
         stage('Build') {
             steps {
-				sh 'npm install'
                 sh 'npm run-script build'
-            	archiveArtifacts artifacts: 'public/**/*', fingerprint: true
             }
         }
-
         stage('Test') {
 			environment {
 				CI = 'true'
@@ -18,7 +20,10 @@ pipeline {
                 sh 'npm run-script test'
             }
         }
-
+		stage('Archive') {
+			sh 'tar cjvf public-$(git rev-parse HEAD).tar.bz2 public'
+			archiveArtifacts artifacts: 'public-*.tar.bz2', fingerprint: true
+		}
         stage('Deploy') {
 			when {
 				expression {
