@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListGroup renders correctly 1`] = `
+<div
+  className="col-sm-4"
+>
+  <ul
+    className="list-group"
+  >
+    <li
+      className="list-group-item"
+    >
+      <i
+        className="fa fa-hand-o-right"
+      />
+       
+      One
+    </li>
+    <li
+      className="list-group-item"
+    >
+      <i
+        className="fa fa-hand-o-right"
+      />
+       
+      Two
+    </li>
+    <li
+      className="list-group-item"
+    >
+      <i
+        className="fa fa-hand-o-right"
+      />
+       
+      Three
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListGroup renders correctly with custom columnSize 1`] = `
+<div
+  className="col-sm-6"
+>
+  <ul
+    className="list-group"
+  >
+    <li
+      className="list-group-item"
+    >
+      <i
+        className="fa fa-hand-o-right"
+      />
+       
+      One
+    </li>
+    <li
+      className="list-group-item"
+    >
+      <i
+        className="fa fa-hand-o-right"
+      />
+       
+      Two
+    </li>
+    <li
+      className="list-group-item"
+    >
+      <i
+        className="fa fa-hand-o-right"
+      />
+       
+      Three
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListGroup renders correctly with custom icon 1`] = `
+<div
+  className="col-sm-4"
+>
+  <ul
+    className="list-group"
+  >
+    <li
+      className="list-group-item"
+    >
+      <i
+        className="fa fa-icon"
+      />
+       
+      One
+    </li>
+    <li
+      className="list-group-item"
+    >
+      <i
+        className="fa fa-icon"
+      />
+       
+      Two
+    </li>
+    <li
+      className="list-group-item"
+    >
+      <i
+        className="fa fa-icon"
+      />
+       
+      Three
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ListGroup should return null when no values are given 1`] = `null`;
