@@ -13,3 +13,12 @@
   display: inline-block;
   margin-right: 10px;
 }
+
+@media (min-width: 768px) {
+  .previousPost {
+    text-align: left;
+  }
+  .nextPost {
+    text-align: right;
+  }
+}

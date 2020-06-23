@@ -19,10 +19,11 @@ const shortcodes = { ExternalLink, Link }
 
 export default class BlogPostTemplate extends React.Component {
   render() {
-    const { path } = this.props
+    const { path, pageContext } = this.props
     const post = this.props.data.mdx
     const postTitle = post.frontmatter.title
     const tags = post.frontmatter.tags
+
     return (
       <Layout path={path}>
         <SEO
@@ -74,12 +75,40 @@ export default class BlogPostTemplate extends React.Component {
           </div>
         </Section>
         <CenteredSection>
+          <div className="row">
+            <div className="col-sm-6 col-xs-12">
+              <p className={containerStyles.previousPost}>
+                {pageContext.previous && (
+                  <Link to={`/blog${pageContext.previous.fields.slug}`} rel="prev">
+                    <strong>← Previous post</strong>
+                    <br />
+                    <span className="small">
+                      {pageContext.previous.frontmatter.title}
+                    </span>
+                  </Link>
+                )}
+              </p>
+            </div>
+            <div className="col-sm-6 col-xs-12">
+              <p className={containerStyles.nextPost}>
+                {pageContext.next && (
+                  <Link to={`/blog${pageContext.next.fields.slug}`} rel="next">
+                    <strong>Next post →</strong>
+                    <br />
+                    <span className="small">
+                      {pageContext.next.frontmatter.title}
+                    </span>
+                  </Link>
+                )}
+              </p>
+            </div>
+          </div>
           <a
             href={
               "https://twitter.com/intent/tweet/?text=" +
               postTitle +
-              "&url=https://alexanderschroeder.net" +
-              post.fields.slug +
+              "&url=https://alexanderschroeder.net/blog" +
+              pageContext.slug +
               "&via=" +
               this.props.data.site.siteMetadata.social.twitter
             }
@@ -128,7 +157,6 @@ export const query = graphql`
         readingTime {
           text
         }
-        slug
       }
     }
   }

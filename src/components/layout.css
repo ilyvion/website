@@ -4,7 +4,7 @@
   --theme-secondary-color: #f05f40;
   --theme-secondary-color-hover: #b5482f;
   --theme-tertiary-color: #5af040;
-  --theme-tertiary-color: #4ac534;
+  --theme-tertiary-color-hover: #4ac534;
 }
 
 html {
@@ -13,7 +13,7 @@ html {
   scroll-padding-top: 51px;
 }
 
-* {
+body {
   font-family: "Titillium Web", serif;
   font-weight: 400;
 }
@@ -372,3 +372,15 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #222;
 }
+
+@media (max-width: 768px) {
+.gatsby-highlight {
+	width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+}
+
