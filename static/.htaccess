@@ -6,3 +6,6 @@
 # Give up on CSP for now, too many bugs and issues
 # Header always set Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval'; font-src 'self' https://fonts.gstatic.com:* https://stackpath.bootstrapcdn.com:* https://cdn.jsdelivr.net:*; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com:* https://stackpath.bootstrapcdn.com:* https://cdn.jsdelivr.net:*; prefetch-src 'self' https://fonts.gstatic.com:* https://fonts.googleapis.com:* https://stackpath.bootstrapcdn.com:* https://cdn.jsdelivr.net:*; connect-src 'self' https://fonts.gstatic.com:* https://fonts.googleapis.com:* https://stackpath.bootstrapcdn.com:* https://cdn.jsdelivr.net:*"
 
+<Files ~ ".+\.(js)$">
+  Header always set Cache-Control "max-age=31536000, public"
+</Files>

@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 
 import Progress from "@components/Progress"
 
+import Arrow from "./Arrow"
 import "./Navigation.css"
 
 class Navigation extends Component {
@@ -12,60 +13,18 @@ class Navigation extends Component {
       atTop: true,
       navigationExpanded: false,
       activePageNavigationItem: null,
-      arrowCalculationInProgress: false,
-      arrowPosition: null,
     }
     this.mainNavbarRef = React.createRef()
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.path !== prevProps.path) {
-      this.onRouteChanged()
-    }
-  }
-
   componentDidMount() {
-    window.addEventListener("scroll", e => this.handleScroll(e))
-    if (document.readyState === "complete") {
-      this.onRouteChanged()
-    } else {
-      window.addEventListener("load", () => this.onRouteChanged())
-    }
+    window.addEventListener("scroll", e => this.handleScroll(e), {
+      passive: true,
+    })
   }
 
   componentWillUnmount() {
     window.removeEventListener("scroll", e => this.handleScroll(e))
-  }
-
-  onRouteChanged() {
-    this.setState(
-      { arrowCalculationInProgress: true, arrowPosition: null },
-      () => {
-        this.setState({
-          arrowCalculationInProgress: false,
-          arrowPosition: this.calculateArrowPosition(),
-        })
-      }
-    )
-  }
-
-  calculateArrowPosition() {
-    const activePage = document.querySelector(".site-navbar .active")
-    if (!activePage) {
-      console.warn(
-        "The current page is missing from the navigation; cannot calculate arrow position"
-      )
-      return
-    }
-    const activePageRect = activePage.getBoundingClientRect()
-    const activePageLinkPos = activePageRect.x + activePageRect.width / 2
-
-    const pageNavBar = document.querySelector(".page-navbar")
-    const pageNavBarRect = pageNavBar.getBoundingClientRect()
-    const arrowOffsetBasePos = pageNavBarRect.x
-    const arrowOffset = Math.floor(activePageLinkPos - arrowOffsetBasePos)
-
-    return arrowOffset
   }
 
   handleScroll(event) {
@@ -203,12 +162,7 @@ class Navigation extends Component {
   }
 
   render() {
-    const {
-      atTop,
-      navigationExpanded,
-      activePageNavigationItem,
-      arrowPosition,
-    } = this.state
+    const { atTop, navigationExpanded, activePageNavigationItem } = this.state
     const { menuItems, path } = this.props
 
     const menuEntries = []
@@ -260,13 +214,6 @@ class Navigation extends Component {
         </Link>
       </li>
     )
-
-    let arrowElement = null
-    if (arrowPosition) {
-      arrowElement = (
-        <div className="arrow" style={{ left: arrowPosition }}></div>
-      )
-    }
 
     // Kludge to get transparent page navigation on main page
     let pageNavbarExtra = ""
@@ -321,7 +268,7 @@ class Navigation extends Component {
               pageNavbarExtra
             }
           >
-            {arrowElement}
+            <Arrow />
             <ul className="nav navbar-nav">{pageMenuEntries}</ul>
           </div>
         </div>

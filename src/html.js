@@ -12,7 +12,7 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <link
-          href="//fonts.googleapis.com/css?family=Titillium+Web|Inconsolata&amp;subset=latin,latin-ext"
+          href="//fonts.googleapis.com/css?family=Titillium+Web|Inconsolata&amp;subset=latin,latin-ext&amp;display=swap"
           rel="stylesheet"
           type="text/css"
         />
