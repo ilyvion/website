@@ -1,0 +1,10 @@
+.commentImage {
+  width: 64px;
+}
+
+.OWNER {
+  background-color: var(--theme-color);
+  padding: 1px 5px;
+  color: white;
+  text-align: center;
+}

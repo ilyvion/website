@@ -11,7 +11,9 @@ import SEO from "@components/seo"
 import Header from "@components/Header"
 import Section, { CenteredSection } from "@components/Section"
 import ExternalLink from "@components/externalLink"
+import BlogComments from "@components/blogComments"
 import shareOnTwitter from "@assets/share-on-twitter.png"
+import bySa from "@assets/by-sa.svg"
 
 import containerStyles from "./blogPost.module.css"
 
@@ -21,6 +23,7 @@ export default class BlogPostTemplate extends React.Component {
   render() {
     const { path, pageContext } = this.props
     const post = this.props.data.mdx
+    const siteMetadata = this.props.data.site.siteMetadata
     const postTitle = post.frontmatter.title
     const tags = post.frontmatter.tags
 
@@ -72,14 +75,38 @@ export default class BlogPostTemplate extends React.Component {
             <MDXProvider components={shortcodes}>
               <MDXRenderer>{post.body}</MDXRenderer>
             </MDXProvider>
+            <p>
+              © {moment(post.frontmatter.raw_date).format("YYYY")}{" "}
+              {siteMetadata.author}.{" "}
+              <ExternalLink to="https://creativecommons.org/licenses/by-sa/4.0/">
+                <img
+                  src={bySa}
+                  className={containerStyles.bySa}
+                  alt="CC-BY-SA"
+                />{" "}
+                Some Rights Reserved.{" "}
+              </ExternalLink>
+            </p>
           </div>
         </Section>
+        {post.frontmatter.comment_issue_id && (
+          <Section>
+            <h2 className="section-heading text-center">Comments</h2>
+            <hr className="primary" />
+            <div className="col-lg-8 col-lg-offset-2">
+              <BlogComments issueId={post.frontmatter.comment_issue_id} />
+            </div>
+          </Section>
+        )}
         <CenteredSection>
           <div className="row">
             <div className="col-sm-6 col-xs-12">
               <p className={containerStyles.previousPost}>
                 {pageContext.previous && (
-                  <Link to={`/blog${pageContext.previous.fields.slug}`} rel="prev">
+                  <Link
+                    to={`/blog${pageContext.previous.fields.slug}`}
+                    rel="prev"
+                  >
                     <strong>← Previous post</strong>
                     <br />
                     <span className="small">
@@ -110,7 +137,7 @@ export default class BlogPostTemplate extends React.Component {
               "&url=https://alexanderschroeder.net/blog" +
               pageContext.slug +
               "&via=" +
-              this.props.data.site.siteMetadata.social.twitter
+              siteMetadata.social.twitter
             }
             style={{ boxShadow: "none" }}
           >
@@ -136,7 +163,6 @@ export const query = graphql`
   query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
-        title
         author
         social {
           twitter
@@ -152,6 +178,7 @@ export const query = graphql`
         date(formatString: "MMMM DD, YYYY")
         raw_date: date
         tags
+        comment_issue_id
       }
       fields {
         readingTime {

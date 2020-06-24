@@ -2,6 +2,7 @@
 title: "Hello, Blogosphere World"
 date: "2020-06-21T06:08:00Z"
 tags: ["blog", "gatsby", "github", "react"]
+comment_issue_id: 9
 ---
 
 Hello, hello! Is there anybody out there?[^cliche] Welcome to the sparkling new blog!
