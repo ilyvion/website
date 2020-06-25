@@ -1,5 +1,6 @@
 ---
 title: "In Praise of Rust: Part 1 — Introduction"
+start_date: "2020-06-21T11:27:03Z"
 date: "2020-06-21T17:44:00Z"
 tags: ["rust", "praise-rust"]
 draft: false
