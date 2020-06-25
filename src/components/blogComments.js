@@ -115,7 +115,7 @@ class BlogComments extends React.Component {
       async res => {
         if (res.status === 200) {
           const lastUpdated = new Date()
-          const etag = headers.get("Etag")
+          const etag = res.headers.get("Etag")
           const comments = await res.json()
           const data = { lastUpdated, comments, etag }
           localStorage.setItem(
