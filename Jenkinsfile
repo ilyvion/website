@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
 				sh 'npm run-script clean'
-                sh 'NODE_OPTIONS=--max_old_space_size=4096 npm run-script build'
+                sh 'NODE_OPTIONS=--max_old_space_size=4096 nice -n 10 npm run-script build'
             }
         }
         stage('Test') {
