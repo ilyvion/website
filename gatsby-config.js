@@ -20,7 +20,7 @@ module.exports = {
     author: `Alexander Krivács Schrøder`,
     siteUrl: `https://alexanderschroeder.net`,
     description: `Highly passionate software developer in Oslo, Norway`,
-    gitHubAccount: `alexschrod/website`,
+    gitHubRepository: `alexschrod/website`,
     code: {
       github: `alexschrod`,
       stackoverflow: { id: 161250, name: `alex` },

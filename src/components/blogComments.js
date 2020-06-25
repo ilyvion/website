@@ -80,13 +80,13 @@ class BlogComments extends React.Component {
     this.state = {
       data: null,
       loading: false,
-      error: false,
+      error: null,
     }
   }
 
   componentDidMount() {
-    const { gitHubAccount, issueId } = this.props
-    const data = localStorage.getItem(`comments_${gitHubAccount}_${issueId}`)
+    const { gitHubRepository, issueId } = this.props
+    const data = localStorage.getItem(`comments_${gitHubRepository}_${issueId}`)
     if (data) {
       this.setState({ data: JSON.parse(data) })
     } else {
@@ -95,45 +95,64 @@ class BlogComments extends React.Component {
   }
 
   reloadComments() {
-    const { gitHubAccount, issueId } = this.props
-    const apiUrl = `https://api.github.com/repos/${gitHubAccount}/issues/${issueId}/comments?per_page=100`
+    const { gitHubRepository, issueId } = this.props
+    const { data } = this.state
+
+    const apiUrl = `https://api.github.com/repos/${gitHubRepository}/issues/${issueId}/comments?per_page=100`
+
+    const headers = {
+      Accept: "application/vnd.github.full+json",
+    }
+    if (data && data.etag) {
+      headers["If-None-Match"] = data.etag
+    }
 
     this.setState({ loading: true })
     fetch(apiUrl, {
       method: "GET",
-      headers: {
-        Accept: "application/vnd.github.full+json",
-      },
-    })
-      .then(res => Promise.all([res.json(), Promise.resolve(res.status)]))
-      .then(
-        result => {
-          let status = result[1]
-          let response = result[0]
-
-          if (status === 200) {
-            const lastUpdated = new Date()
-            const data = { lastUpdated, comments: response }
-            localStorage.setItem(
-              `comments_${gitHubAccount}_${issueId}`,
-              JSON.stringify(data)
-            )
-            this.setState({ data, error: false })
+      headers,
+    }).then(
+      async res => {
+        if (res.status === 200) {
+          const lastUpdated = new Date()
+          const etag = headers.get("Etag")
+          const comments = await res.json()
+          const data = { lastUpdated, comments, etag }
+          localStorage.setItem(
+            `comments_${gitHubRepository}_${issueId}`,
+            JSON.stringify(data)
+          )
+          this.setState({ data, error: null })
+        } else if (res.status === 304) {
+          data.lastUpdated = new Date()
+          localStorage.setItem(
+            `comments_${gitHubRepository}_${issueId}`,
+            JSON.stringify(data)
+          )
+          this.setState({ data, error: null })
+        } else {
+          const contentType = headers.get("Content-Type")
+          let errorData, errorType
+          if (contentType.includes("json")) {
+            errorType = "json"
+            errorData = await res.json()
           } else {
-            this.setState({ error: true })
-            console.error("GitHub API error:", status, response)
+            errorType = "text"
+            errorData = await res.text()
           }
-          this.setState({ loading: false })
-        },
-        error => {
-          this.setState({ error: true, loading: false })
-          console.error("Fetch error:", error)
+          const error = { type: errorType, data: errorData }
+          this.setState({ error })
         }
-      )
+        this.setState({ loading: false })
+      },
+      error => {
+        this.setState({ error: { type: "fetch", data: error }, loading: false })
+      }
+    )
   }
 
   render() {
-    const { gitHubAccount, issueId } = this.props
+    const { gitHubRepository, issueId } = this.props
     const { error, data } = this.state
 
     let additional
@@ -173,13 +192,44 @@ class BlogComments extends React.Component {
         comments = <></>
       }
     } else {
-      additional = (
-        <>
-          The comments cannot be shown inline because we have hit the rate limit
-          of GitHub.
-        </>
-      )
-      comments = <></>
+      switch (error.type) {
+        case "json":
+          additional = (
+            <>
+              The comments cannot be shown inline because we have received an
+              error from GitHub's API:
+            </>
+          )
+          comments = (
+            <p>
+              {error.data.message}{" "}
+              <ExternalLink to={error.data.documentation_url}>
+                Documentation
+              </ExternalLink>
+            </p>
+          )
+          break
+        case "text":
+          additional = (
+            <>
+              The comments cannot be shown inline because we have received an
+              error from GitHub's API:
+            </>
+          )
+          comments = (
+            <div dangerouslySetInnerHTML={{ __html: error.data }}></div>
+          )
+          break
+        case "fetch":
+          additional = (
+            <>
+              The comments cannot be shown inline because we encountered an
+              error while attempting to contact GitHub:
+            </>
+          )
+          comments = <p>{error.data}</p>
+          break
+      }
     }
 
     return (
@@ -188,7 +238,7 @@ class BlogComments extends React.Component {
         <p>
           You can{" "}
           <ExternalLink
-            to={`https://github.com/${gitHubAccount}/issues/${issueId}`}
+            to={`https://github.com/${gitHubRepository}/issues/${issueId}`}
           >
             view and leave comments
           </ExternalLink>{" "}
@@ -206,7 +256,7 @@ export default props => {
       query {
         site {
           siteMetadata {
-            gitHubAccount
+            gitHubRepository
           }
         }
       }
@@ -214,7 +264,7 @@ export default props => {
   )
   return (
     <BlogComments
-      gitHubAccount={data.site.siteMetadata.gitHubAccount}
+      gitHubRepository={data.site.siteMetadata.gitHubRepository}
       {...props}
     />
   )
