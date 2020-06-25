@@ -115,3 +115,17 @@ exports.createPages = async ({ graphql, actions }) => {
     context: {},
   })
 }
+
+exports.onCreateWebpackConfig = ({
+  stage,
+  rules,
+  loaders,
+  plugins,
+  actions,
+}) => {
+  actions.setWebpackConfig({
+    node: {
+      fs: "empty",
+    },
+  })
+}

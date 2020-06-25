@@ -1,10 +1,57 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import moment from "moment"
+import MDX from "@mdx-js/runtime"
+import Highlight, { defaultProps } from "prism-react-renderer"
+import sanitize from "rehype-sanitize"
+import github from "hast-util-sanitize/lib/github"
+import deepmerge from "deepmerge"
 
 import ExternalLink from "@components/externalLink"
 
 import containerStyles from "./blogComments.module.css"
+
+const schema = deepmerge(github, { attributes: { code: ["className"] } })
+
+const CodeBlock = ({ className, children }) => {
+  let language
+  if (className) {
+    language = className.slice("language-".length)
+  } else {
+    language = "plain"
+  }
+  return (
+    <Highlight {...defaultProps} code={children} language={language}>
+      {({ className, tokens, getLineProps, getTokenProps }) => (
+        <pre className={className}>
+          <code className={className}>
+            {tokens.map((line, i) => {
+              const { className, key } = getLineProps({ line, key: i })
+              return (
+                <div className={className} key={key}>
+                  {line.map((token, key) => {
+                    const {
+                      className,
+                      children,
+                      key: tokenKey,
+                    } = getTokenProps({ token, key })
+                    return (
+                      <span
+                        className={className}
+                        key={tokenKey}
+                        children={children}
+                      />
+                    )
+                  })}
+                </div>
+              )
+            })}
+          </code>
+        </pre>
+      )}
+    </Highlight>
+  )
+}
 
 const BlogComment = ({
   userAssociation,
@@ -14,31 +61,43 @@ const BlogComment = ({
   commentLink,
   commentDate,
   comment,
-}) => (
-  <div className={`media`}>
-    <div className="media-left">
-      <a href={userLink}>
-        <img
-          className={`media-object ${containerStyles.commentImage}`}
-          src={userAvatarUrl}
-          alt={userName}
-        />
-      </a>
-      {userAssociation === "OWNER" && (
-        <div className={containerStyles.OWNER}>Author</div>
-      )}
-    </div>
-    <div className="media-body">
-      <h4 className="media-heading">
-        <a href={userLink}>{userName}</a> commented{" "}
-        <a href={commentLink}>
-          on {moment(commentDate).format("MMMM DD, YYYY HH:mm")}
+}) => {
+  const components = {
+    // Strip <pre> elements
+    pre: ({ children }) => <>{children}</>,
+    // Render <code> elements with CodeBlock for highlighting
+    code: ({ className, children }) => (
+      <CodeBlock className={className} children={children} />
+    ),
+  }
+  return (
+    <div className={`media`}>
+      <div className="media-left">
+        <a href={userLink}>
+          <img
+            className={`media-object ${containerStyles.commentImage}`}
+            src={userAvatarUrl}
+            alt={userName}
+          />
         </a>
-      </h4>
-      <div dangerouslySetInnerHTML={{ __html: comment }}></div>
+        {userAssociation === "OWNER" && (
+          <div className={containerStyles.OWNER}>Author</div>
+        )}
+      </div>
+      <div className="media-body">
+        <h4 className="media-heading">
+          <a href={userLink}>{userName}</a> commented{" "}
+          <a href={commentLink}>
+            on {moment(commentDate).format("MMMM DD, YYYY HH:mm")}
+          </a>
+        </h4>
+        <MDX components={components} rehypePlugins={[() => sanitize(schema)]}>
+          {comment}
+        </MDX>
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 class LastRefreshed extends React.Component {
   constructor(props) {
@@ -182,7 +241,7 @@ class BlogComments extends React.Component {
               userAvatarUrl={c.user.avatar_url}
               commentLink={c.html_url}
               commentDate={c.created_at}
-              comment={c.body_html}
+              comment={c.body}
             />
           ))
         } else {
@@ -229,6 +288,8 @@ class BlogComments extends React.Component {
           )
           comments = <p>{error.data}</p>
           break
+        default:
+          throw new Error(`Unexpected error type ${error.type}`)
       }
     }
 
