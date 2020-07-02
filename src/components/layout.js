@@ -26,11 +26,9 @@ export default function Layout({ path, children }) {
     `
   )
   return (
-    <>
       <div style={{ height: "100%" }}>
         <Navigation path={path} menuItems={data.site.siteMetadata.menuLinks} />
         {children}
       </div>
-    </>
   )
 }

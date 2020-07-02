@@ -11,7 +11,9 @@ class Progress extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", e => this.handleScroll(e))
+    window.addEventListener("scroll", e => this.handleScroll(e), {
+		passive: true,
+	  })
   }
 
   componentWillUnmount() {

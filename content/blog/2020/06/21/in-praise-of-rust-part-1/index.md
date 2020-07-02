@@ -7,7 +7,7 @@ draft: false
 comment_issue_id: 10
 ---
 
-_When I first started this post, I thought I would just go over how I encountered the Rust programming language and then discuss what makes it stand out from the crowd, but the post got very long very fast, so I've decided to split it up into multiple posts, and I'll leave this one just discussing my introduction to the language and some very high-level ways in which it differs from the crowd._
+_When I first started this post, I thought I would just go over how I encountered the Rust programming language and then discuss what it was about it that made it stand out from the crowd, but the post got very long very fast, so I've decided to split it up into multiple posts, and I'll leave this one just discussing my introduction to the language and some very high-level ways in which it differs from the crowd._
 
 ---
 

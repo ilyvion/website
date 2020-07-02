@@ -6,6 +6,29 @@ import Progress from "@components/Progress"
 import Arrow from "./Arrow"
 import "./Navigation.css"
 
+const NavbarTitle = React.forwardRef(({ title, toggleNavigationAction, clickTitleAction }, ref) => (
+  <div id="mainNavbar" className="navbar-header" ref={ref}>
+    <button
+      type="button"
+      className="navbar-toggle collapsed"
+      onClick={toggleNavigationAction}
+    >
+      <span className="sr-only">Toggle navigation</span>
+      <span className="icon-bar"></span>
+      <span className="icon-bar"></span>
+      <span className="icon-bar"></span>
+    </button>
+    <Link
+      to="/"
+      onClick={clickTitleAction}
+      className="navbar-brand page-scroll"
+    >
+      {title}
+    </Link>
+  </div>
+))
+NavbarTitle.displayName = "NavbarTitle"
+
 class Navigation extends Component {
   constructor(props) {
     super(props)
@@ -230,29 +253,13 @@ class Navigation extends Component {
         }
       >
         <div className="container-fluid">
-          <div
-            id="mainNavbar"
-            className="navbar-header"
-            ref={this.mainNavbarRef}
-          >
-            <button
-              type="button"
-              className="navbar-toggle collapsed"
-              onClick={() => this.toggleMobileNavigation()}
-            >
-              <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-            </button>
-            <Link
-              to="/"
-              onClick={e => this.clickSiteNavigation(e)}
-              className="navbar-brand page-scroll"
-            >
-              Alexander Krivács Schrøder
-            </Link>
-          </div>
+          <NavbarTitle
+		    ref={this.mainNavbarRef}
+            title="Alexander Krivács Schrøder"
+			toggleNavigationAction={() => this.toggleMobileNavigation()}
+			clickTitleAction={e => this.clickSiteNavigation(e)}
+          />
+
           <div
             className={
               "site-navbar collapse navbar-collapse" +
