@@ -42,7 +42,7 @@ export default class BlogPostTemplate extends React.Component {
             <span
               title={moment(post.frontmatter.raw_date).format(
                 "MMMM DD, YYYY HH:mm"
-              )}
+              ) + " CE(S)T"}
             >
               {post.frontmatter.date}
             </span>{" "}
