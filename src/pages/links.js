@@ -17,7 +17,9 @@ const Links = ({ path }) => (
       <h2 className="section-heading text-center">Webcomics</h2>
       <hr className="primary" />
       <p>
-        <i className="fa fa-star" aria-hidden="true"></i> = highly recommended
+        <i className="fa fa-star" aria-label="star"></i> = highly recommended
+        <br />
+        <i class="fa fa-moon" aria-label="moon"></i> = no longer updated
       </p>
       <h3>
         <abbr title="Safe For Work">SFW</abbr>
@@ -27,19 +29,33 @@ const Links = ({ path }) => (
           <ExternalLink to="https://questionablecontent.net/">
             Questionable Content
           </ExternalLink>{" "}
-          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-label="star"></i>
         </li>
         <li>
           <ExternalLink to="https://grrlpowercomic.com/">
             Grrl Power
           </ExternalLink>{" "}
-          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-label="star"></i>
         </li>
         <li>
           <ExternalLink to="https://dumbingofage.com/">
             Dumbing of Age
           </ExternalLink>{" "}
-          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-label="star"></i>
+        </li>
+        <li>
+          <ExternalLink to="https://www.odditywoods.com/">
+            Oddity Woods
+          </ExternalLink>{" "}
+          <i className="fa fa-star" aria-label="star"></i>{" "}
+          <i class="fa fa-moon" aria-label="moon"></i>
+        </li>
+        <li>
+          <ExternalLink to="https://www.parallaxcomic.com/">
+            Parallax
+          </ExternalLink>{" "}
+          <i className="fa fa-star" aria-label="star"></i>{" "}
+          <i class="fa fa-moon" aria-label="moon"></i>
         </li>
         <li>
           <ExternalLink to="https://flakypastry.runningwithpencils.com/">
@@ -47,12 +63,8 @@ const Links = ({ path }) => (
           </ExternalLink>
         </li>
         <li>
-          <ExternalLink to="https://lawcomic.net/">
-            The Illustrated Guide to Law
-          </ExternalLink>
-        </li>
-        <li>
-          <ExternalLink to="https://ohumanstar.com/">O Human Star</ExternalLink>
+          <ExternalLink to="https://ohumanstar.com/">O Human Star</ExternalLink>{" "}
+          <i class="fa fa-moon" aria-label="moon"></i>
         </li>
         <li>
           <ExternalLink to="http://girlgeniusonline.com/">
@@ -67,6 +79,11 @@ const Links = ({ path }) => (
         <li>
           <ExternalLink to="https://theoatmeal.com/">The Oatmeal</ExternalLink>
         </li>
+        <li>
+          <ExternalLink to="https://lawcomic.net/">
+            The Illustrated Guide to Law
+          </ExternalLink>
+        </li>
       </ul>
       <h3>
         <abbr title="Not Safe For Work">NSFW</abbr>
@@ -74,7 +91,7 @@ const Links = ({ path }) => (
       <ul>
         <li>
           <ExternalLink to="https://buttsmithy.com/">Alfie</ExternalLink>{" "}
-          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-label="star"></i>
         </li>
         <li>
           <ExternalLink to="https://oglaf.com/">Oglaf</ExternalLink>
