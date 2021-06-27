@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  deploy:
+    image: "instrumentisto/rsync-ssh"
+    volumes:
+      - .:/home/site
+    working_dir: /home/site
+    environment:
+      deploy_key: $DEPLOY_KEY
+      deploy_target: $DEPLOY_TARGET
+    command: sh deploy.sh

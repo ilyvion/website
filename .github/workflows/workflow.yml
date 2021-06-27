@@ -27,7 +27,9 @@ jobs:
         run: yarn run build
         env:
           NODE_ENV: "prod"
-      # - name: Deploy
-      #   run: docker-compose run deploy
-      #   env:
-      #     DEPLOY_KEY: ${{ secrets.deploy_key }}
+
+      - name: Deploy
+        run: docker-compose run deploy
+        env:
+          DEPLOY_KEY: ${{ secrets.deploy_key }}
+          DEPLOY_TARGET: ${{ secrets.deploy_target }}
