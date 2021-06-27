@@ -5,7 +5,7 @@ on:
     branches: [master]
 
 jobs:
-  update:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,7 +18,7 @@ jobs:
           node-version: 12.x
 
       - name: Install dependencies
-        run: yarn install --prod --pure-lockfile
+        run: yarn install --pure-lockfile
 
       - name: Test
         run: yarn run test
