@@ -11,10 +11,11 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-          href="//fonts.googleapis.com/css?family=Titillium+Web|Inconsolata&amp;subset=latin,latin-ext&amp;display=swap"
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic&amp;family=Nunito&amp;family=Titillium+Web:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
           rel="stylesheet"
-          type="text/css"
         />
         <link
           rel="stylesheet"

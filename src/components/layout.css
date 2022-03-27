@@ -7,6 +7,16 @@
   --theme-tertiary-color-hover: #4ac534;
 }
 
+/* We need this because of https://github.com/google/fonts/issues/1702 */
+@font-face {
+  font-family: Nunito-Local;
+  src: url("/fonts/Nunito-Regular.ttf") format("truetype");
+}
+
+ruby > rt {
+  font-size: 65%;
+}
+
 html {
   /* Anchor targets (#something) are offset by this much when triggered, which
 	   avoids them ending up under the fixed header */
@@ -14,7 +24,7 @@ html {
 }
 
 body {
-  font-family: "Titillium Web", serif;
+  font-family: "Titillium Web", Nunito, Nunito-Local, "Noto Sans Arabic", serif;
   font-weight: 400;
 }
 

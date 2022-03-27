@@ -11,13 +11,14 @@ import SEO from "@components/seo"
 import Header from "@components/Header"
 import Section, { CenteredSection } from "@components/Section"
 import ExternalLink from "@components/externalLink"
+import Ruby from "@components/ruby"
 import BlogComments from "@components/blogComments"
 import shareOnTwitter from "@assets/share-on-twitter.png"
 import bySa from "@assets/by-sa.svg"
 
 import containerStyles from "./blogPost.module.css"
 
-const shortcodes = { ExternalLink, Link }
+const shortcodes = { ExternalLink, Link, Ruby }
 
 export default class BlogPostTemplate extends React.Component {
   render() {
@@ -40,9 +41,11 @@ export default class BlogPostTemplate extends React.Component {
           <hr className="primary" />
           <p>
             <span
-              title={moment(post.frontmatter.raw_date).format(
-                "MMMM DD, YYYY HH:mm"
-              ) + " CE(S)T"}
+              title={
+                moment(post.frontmatter.raw_date).format(
+                  "MMMM DD, YYYY HH:mm"
+                ) + " CE(S)T"
+              }
             >
               {post.frontmatter.date}
             </span>{" "}
