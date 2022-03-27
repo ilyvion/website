@@ -1,5 +1,5 @@
 ---
-title: "Considerations on a Way to Use Native Script to write Foreign Names in Native Text"
+title: "Considerations on a Way to Use Native Script to Write Foreign Names in Native Text"
 start_date: "2022-03-27T10:30:00Z"
 date: "2022-03-27T13:56:00Z"
 tags: ["languages", "jj-mccullough", "ruby-characters"]
