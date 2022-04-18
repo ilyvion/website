@@ -29,6 +29,7 @@ module.exports = {
     social: {
       email: `alexschrod@gmail.com`,
       twitter: `ilyvion`,
+      mastodon: `@ilyvion`,
       facebook: `alexander.schroder`,
       linkedin: `alexanderschroder`,
     },

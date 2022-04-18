@@ -204,22 +204,33 @@ export default function Home({ data, path }) {
         <hr className="light" />
         <br />
         <IconLink
+          columnSize={3}
           color="white"
           href={`https://www.linkedin.com/in/${data.site.siteMetadata.social.linkedin}/`}
           icon="linkedin"
           text="LinkedIn"
         />
         <IconLink
+          columnSize={3}
           color="white"
           href={`https://www.facebook.com/${data.site.siteMetadata.social.facebook}`}
           icon="facebook"
           text="Facebook"
         />
         <IconLink
+          columnSize={3}
           color="white"
           href={`https://twitter.com/${data.site.siteMetadata.social.twitter}`}
           icon="twitter"
           text="Twitter"
+        />
+        <IconLink
+          columnSize={3}
+          color="white"
+          href={`https://mastodon.social/${data.site.siteMetadata.social.mastodon}`}
+          icon="mastodon"
+          text="Mastodon"
+          rel="me"
         />
       </CenteredSection>
       <CenteredSection id="contact">
@@ -264,6 +275,7 @@ export const query = graphql`
         social {
           email
           twitter
+          mastodon
           facebook
           linkedin
         }
