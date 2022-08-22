@@ -44,6 +44,12 @@ const Links = ({ path }) => (
           <i className="fa fa-star" aria-label="star"></i>
         </li>
         <li>
+          <ExternalLink to="https://awakencomic.com/">
+            Awaken
+          </ExternalLink>{" "}
+          <i className="fa fa-star" aria-label="star"></i>
+        </li>
+        <li>
           <ExternalLink to="https://www.odditywoods.com/">
             Oddity Woods
           </ExternalLink>{" "}
