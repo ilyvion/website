@@ -227,7 +227,7 @@ export default function Home({ data, path }) {
         <IconLink
           columnSize={3}
           color="white"
-          href={`https://mastodon.social/${data.site.siteMetadata.social.mastodon}`}
+          href={data.site.siteMetadata.social.mastodon}
           icon="mastodon"
           text="Mastodon"
           rel="me"

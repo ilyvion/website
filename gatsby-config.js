@@ -29,7 +29,7 @@ module.exports = {
     social: {
       email: `alexschrod@gmail.com`,
       twitter: `ilyvion`,
-      mastodon: `@ilyvion`,
+      mastodon: `https://hachyderm.io/@ilyvion`,
       facebook: `alexander.schroder`,
       linkedin: `alexanderschroder`,
     },
