@@ -8705,13 +8705,6 @@ hast-util-raw@5.0.2:
     xtend "^4.0.0"
     zwitch "^1.0.0"
 
-hast-util-sanitize@^2.0.0, hast-util-sanitize@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.npmjs.org/hast-util-sanitize/-/hast-util-sanitize-2.0.3.tgz"
-  integrity sha512-RILqWHmzU0Anmfw1KEP41LbCsJuJUVM0lQWAbTDk9+0bWqzRFXDaMdqIoRocLlOfR5NfcWyhFfZw/mGsuftwYA==
-  dependencies:
-    xtend "^4.0.0"
-
 hast-util-to-parse5@^5.0.0:
   version "5.1.2"
   resolved "https://registry.npmjs.org/hast-util-to-parse5/-/hast-util-to-parse5-5.1.2.tgz"
@@ -13157,11 +13150,6 @@ pretty-format@^26.0.1:
     ansi-styles "^4.0.0"
     react-is "^16.12.0"
 
-prism-react-renderer@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/prism-react-renderer/-/prism-react-renderer-1.1.1.tgz"
-  integrity sha512-MgMhSdHuHymNRqD6KM3eGS0PNqgK9q4QF5P0yoQQvpB6jNjeSAi3jcSAz0Sua/t9fa4xDOMar9HJbLa08gl9ug==
-
 prismjs@^1.20.0:
   version "1.20.0"
   resolved "https://registry.npmjs.org/prismjs/-/prismjs-1.20.0.tgz"
@@ -13933,13 +13921,6 @@ regjsparser@^0.6.4:
   integrity sha512-64O87/dPDgfk8/RQqC4gkZoGyyWFIEUTTh80CU6CWuK5vkCGyekIx+oKcEIYtP/RAxSQltCZHCNu/mdd7fqlJw==
   dependencies:
     jsesc "~0.5.0"
-
-rehype-sanitize@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/rehype-sanitize/-/rehype-sanitize-3.0.1.tgz"
-  integrity sha512-tOXwIVmrFsjwFfhWPF2FYaIJ0LPEfGngQZvRfmqCsCGVCNbRlTMMcJPaLNwdUrNkKPNh/VdmA2ZzzivbQTfIMw==
-  dependencies:
-    hast-util-sanitize "^2.0.0"
 
 relay-compiler@9.1.0:
   version "9.1.0"

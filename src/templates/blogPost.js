@@ -12,7 +12,7 @@ import Header from "@components/Header"
 import Section, { CenteredSection } from "@components/Section"
 import ExternalLink from "@components/externalLink"
 import Ruby from "@components/ruby"
-import BlogComments from "@components/blogComments"
+import UtterancesComments from "@components/utterancesComments"
 import shareOnTwitter from "@assets/share-on-twitter.png"
 import bySa from "@assets/by-sa.svg"
 
@@ -97,8 +97,20 @@ export default class BlogPostTemplate extends React.Component {
             <h2 className="section-heading text-center">Comments</h2>
             <hr className="primary" />
             <div className="col-lg-8 col-lg-offset-2">
-              <BlogComments issueId={post.frontmatter.comment_issue_id} />
+              <UtterancesComments
+                issueNumber={post.frontmatter.comment_issue_id}
+              />
             </div>
+            <p className="col-lg-8 col-lg-offset-2 small">
+              You can also{" "}
+              <ExternalLink
+                to={`https://github.com/${siteMetadata.gitHubRepository}/issues/${post.frontmatter.comment_issue_id}`}
+              >
+                leave comments
+              </ExternalLink>{" "}
+              directly on GitHub, should you not want to authorize the
+              utteranc.es API to post on your behalf.
+            </p>
           </Section>
         )}
         <CenteredSection>
@@ -170,6 +182,7 @@ export const query = graphql`
         social {
           twitter
         }
+        gitHubRepository
       }
     }
     mdx(fields: { slug: { eq: $slug } }) {
