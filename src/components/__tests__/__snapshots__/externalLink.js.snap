@@ -3,6 +3,11 @@
 exports[`ExternalLink renders correctly 1`] = `
 <a
   href="http://example.com/"
+  style={
+    Object {
+      "white-space": "nowrap",
+    }
+  }
 >
    
   <i

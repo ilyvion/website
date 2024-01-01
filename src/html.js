@@ -39,6 +39,7 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
+        <script async src="https://static.addtoany.com/menu/page.js"></script>
       </body>
     </html>
   )

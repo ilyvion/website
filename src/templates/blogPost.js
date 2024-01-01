@@ -13,7 +13,7 @@ import Section, { CenteredSection } from "@components/Section"
 import ExternalLink from "@components/externalLink"
 import Ruby from "@components/ruby"
 import UtterancesComments from "@components/utterancesComments"
-import shareOnTwitter from "@assets/share-on-twitter.png"
+import AddToAny from "@components/addToAny"
 import bySa from "@assets/by-sa.svg"
 
 import containerStyles from "./blogPost.module.css"
@@ -91,6 +91,20 @@ export default class BlogPostTemplate extends React.Component {
               </ExternalLink>
             </p>
           </div>
+          <div className="col-lg-8 col-lg-offset-2">
+            <div>Let others know about this article:</div>
+            <AddToAny>
+              <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                <a class="a2a_button_facebook"></a>
+                <a class="a2a_button_mastodon"></a>
+                <a class="a2a_button_x"></a>
+                <a class="a2a_button_threads"></a>
+                <a class="a2a_button_reddit"></a>
+                <a class="a2a_button_hacker_news"></a>
+              </div>
+            </AddToAny>
+          </div>
         </Section>
         {post.frontmatter.comment_issue_id && (
           <Section>
@@ -145,29 +159,6 @@ export default class BlogPostTemplate extends React.Component {
               </p>
             </div>
           </div>
-          <a
-            href={
-              "https://twitter.com/intent/tweet/?text=" +
-              postTitle +
-              "&url=https://alexanderschroeder.net/blog" +
-              pageContext.slug +
-              "&via=" +
-              siteMetadata.social.twitter
-            }
-            style={{ boxShadow: "none" }}
-          >
-            <img
-              src={shareOnTwitter}
-              alt="Share On Twitter"
-              style={{
-                marginTop: 1,
-                marginBottom: 0,
-                width: 320,
-                maxWidth: "100%",
-              }}
-            />
-            <div>Let others know about this article</div>
-          </a>
         </CenteredSection>
       </Layout>
     )
