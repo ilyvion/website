@@ -156,21 +156,21 @@ module.exports = {
         siteUrl: `https://alexanderschroeder.net`,
       },
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Alexander Krivács Schrøder`,
-        short_name: `alexanderschroeder.net`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#4075f0`,
-        display: `standalone`,
-        icon: `src/images/monogram-rendered.svg`,
-        icons: generateIcons([48, 72, 96, 144, 192, 256, 384, 512]),
-        lang: `en`,
-        cache_busting_mode: "none",
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `Alexander Krivács Schrøder`,
+    //     short_name: `alexanderschroeder.net`,
+    //     start_url: `/`,
+    //     background_color: `#ffffff`,
+    //     theme_color: `#4075f0`,
+    //     display: `standalone`,
+    //     icon: `src/images/monogram-rendered.svg`,
+    //     icons: generateIcons([48, 72, 96, 144, 192, 256, 384, 512]),
+    //     lang: `en`,
+    //     cache_busting_mode: "none",
+    //   },
+    // },
     {
       resolve: "gatsby-plugin-offline",
       options: {
