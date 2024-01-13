@@ -54,7 +54,7 @@ export default class BlogPostTemplate extends React.Component {
             &nbsp; &middot; &nbsp;{` `}
             <ExternalLink
               to={
-                "https://github.com/alexschrod/website/tree/master/content" +
+                "https://github.com/ilyvion/website/tree/master/content" +
                 this.props.location.pathname +
                 "index.md"
               }

@@ -10,7 +10,7 @@ const UtterancesComments = ({ issueNumber }) => {
 
     const config = {
       src: "https://utteranc.es/client.js",
-      repo: "alexschrod/website",
+      repo: "ilyvion/website",
       "issue-number": "" + issueNumber,
       theme: "github-light",
       crossOrigin: "anonymous",

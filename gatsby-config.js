@@ -20,18 +20,19 @@ module.exports = {
     author: `Alexander Krivács Schrøder`,
     siteUrl: `https://alexanderschroeder.net`,
     description: `Highly passionate software developer in Oslo, Norway`,
-    gitHubRepository: `alexschrod/website`,
+    gitHubRepository: `ilyvion/website`,
     code: {
-      github: `alexschrod`,
+      github: `ilyvion`,
       stackoverflow: { id: 161250, name: `alex` },
       bitbucket: `alexschrod`,
     },
     social: {
+      discord: `ilyvion`,
       email: `alexschrod@gmail.com`,
-      twitter: `ilyvion`,
-      mastodon: `https://hachyderm.io/@ilyvion`,
       facebook: `alexander.schroder`,
       linkedin: `alexanderschroder`,
+      mastodon: `https://hachyderm.io/@ilyvion`,
+      twitter: `ilyvion`,
     },
     years: {
       startingProgrammingYear: 1995,
@@ -171,14 +172,14 @@ module.exports = {
     //     cache_busting_mode: "none",
     //   },
     // },
-    {
-      resolve: "gatsby-plugin-offline",
-      options: {
-        workboxConfig: {
-          globPatterns: ["**/*"],
-        },
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-offline",
+    //   options: {
+    //     workboxConfig: {
+    //       globPatterns: ["**/*"],
+    //     },
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {

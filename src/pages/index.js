@@ -203,33 +203,43 @@ export default function Home({ data, path }) {
         <h2 className="section-heading">Social</h2>
         <hr className="light" />
         <br />
+
+        <div className={"col-sm-1"}></div>
         <IconLink
-          columnSize={3}
+          columnSize={2}
           color="white"
           href={`https://www.linkedin.com/in/${data.site.siteMetadata.social.linkedin}/`}
           icon="linkedin"
           text="LinkedIn"
         />
         <IconLink
-          columnSize={3}
+          columnSize={2}
           color="white"
           href={`https://www.facebook.com/${data.site.siteMetadata.social.facebook}`}
           icon="facebook"
           text="Facebook"
         />
         <IconLink
-          columnSize={3}
+          columnSize={2}
           color="white"
           href={`https://twitter.com/${data.site.siteMetadata.social.twitter}`}
           icon="twitter"
           text="Twitter"
         />
         <IconLink
-          columnSize={3}
+          columnSize={2}
           color="white"
           href={data.site.siteMetadata.social.mastodon}
           icon="mastodon"
           text="Mastodon"
+          rel="me"
+        />
+        <IconLink
+          columnSize={2}
+          color="white"
+          href={`https://discordapp.com/users/${data.site.siteMetadata.social.discord}`}
+          icon="discord"
+          text="Discord"
           rel="me"
         />
       </CenteredSection>
@@ -237,23 +247,25 @@ export default function Home({ data, path }) {
         <h2 className="section-heading">Contact</h2>
         <hr className="primary" />
         <IconLink
+          columnSize={6}
           color="black"
           href={`mailto:${data.site.siteMetadata.social.email}`}
           icon="envelope"
           text={data.site.siteMetadata.social.email}
         />
         <IconLink
+          columnSize={6}
           color="black"
           href="/alexschrod.asc"
           icon="key-modern"
           text="PGP Key"
         />
-        <IconLink
+        {/* <IconLink
           color="black"
           href="https://keybase.io/alexschrod"
           icon="keybase"
           text="Keybase"
-        />
+        /> */}
       </CenteredSection>
     </Layout>
   )
@@ -273,11 +285,12 @@ export const query = graphql`
           bitbucket
         }
         social {
+          discord
           email
-          twitter
-          mastodon
           facebook
           linkedin
+          mastodon
+          twitter
         }
         years {
           startingProgrammingYear

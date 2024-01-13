@@ -31,7 +31,7 @@ Another half of a day was spent setting up this blog. I based most of my code on
 
 I did make one change to Mark's setup though; because I wanted <ExternalLink to="https://www.gatsbyjs.org/docs/mdx/">MDX support</ExternalLink> for my blog posts, which lets you mix Markdown with React components.
 
-If you want to see exactly how I did what I did, you're in luck! My <ExternalLink to="https://github.com/alexschrod/website">website in all its glory is publicly accessible on GitHub</ExternalLink> for anyone to inspect and learn from!
+If you want to see exactly how I did what I did, you're in luck! My <ExternalLink to="https://github.com/ilyvion/website">website in all its glory is publicly accessible on GitHub</ExternalLink> for anyone to inspect and learn from!
 
 ### Going forward
 
