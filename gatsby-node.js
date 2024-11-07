@@ -27,7 +27,6 @@ exports.createPages = async ({ graphql, actions }) => {
         allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
-          filter: { frontmatter: { draft: { ne: true } } }
         ) {
           edges {
             node {
@@ -35,6 +34,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 slug
               }
               frontmatter {
+                draft
                 title
                 tags
               }
@@ -51,8 +51,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create blog posts pages.
   const blogTemplate = path.resolve(`./src/templates/blogPost.js`)
-  const posts = result.data.allMdx.edges
-  posts.forEach((post, index) => {
+  const posts = result.data.allMdx.edges.filter(e => !e.node.frontmatter.draft)
+  const drafts = result.data.allMdx.edges.filter(e => e.node.frontmatter.draft)
+  const createBlogPage = (post, index, posts) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
 
@@ -65,30 +66,42 @@ exports.createPages = async ({ graphql, actions }) => {
         next,
       },
     })
-  })
+  }
+  posts.forEach(createBlogPage)
+  drafts.forEach(createBlogPage)
 
-  // Create blog-list pages
   const blogListTemplate = path.resolve(`./src/templates/blogList.js`)
   const postsPerPage = 10
-  const numPages = Math.ceil(posts.length / postsPerPage)
-  Array.from({ length: numPages }).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-      component: blogListTemplate,
-      context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        numPages,
-        currentPage: i + 1,
-      },
+
+  const createBlogListPage = function (posts, drafts) {
+    const numPosts = Math.ceil(posts.length / postsPerPage)
+    const pathPrefix = drafts ? "/blog" : "/blog/drafts"
+    Array.from({ length: numPosts }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? `${pathPrefix}` : `${pathPrefix}/${i + 1}`,
+        component: blogListTemplate,
+        context: {
+          drafts: drafts,
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages: numPosts,
+          currentPage: i + 1,
+        },
+      })
     })
-  })
+  }
+
+  // Create blog-list pages
+  createBlogListPage(posts, false)
+
+  // Also for drafts
+  createBlogListPage(drafts, true)
 
   // Create tag pages:
   const tagTemplate = path.resolve(`./src/templates/tag.js`)
   let tags = []
   // Iterate through each post, putting all found tags into `tags`
-  _.each(posts, edge => {
+  _.each([posts, drafts].flat(), edge => {
     if (_.get(edge, "node.frontmatter.tags")) {
       tags = tags.concat(edge.node.frontmatter.tags)
     }

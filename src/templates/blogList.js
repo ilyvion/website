@@ -10,34 +10,39 @@ import Section, { CenteredSection } from "@components/Section"
 const BlogList = ({ path, data, pageContext }) => {
   let blogPosts = data.allMdx.edges
 
-  const { currentPage, numPages } = pageContext
+  const { currentPage, numPages, drafts } = pageContext
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages
   const prevPage =
-    currentPage - 1 === 1 ? "/blog/" : (currentPage - 1).toString()
+    currentPage - 1 === 1
+      ? path.substring(0, path.lastIndexOf("/") - 1)
+      : (currentPage - 1).toString()
   const nextPage = (currentPage + 1).toString()
 
-  blogPosts = blogPosts.map(e => (
-    <div className="col-lg-8 col-lg-offset-2" key={e.node.fields.slug}>
-      <h3>
-        <Link to={`/blog${e.node.fields.slug}`}>
-          {e.node.frontmatter.title}
-        </Link>
-      </h3>
-      <p>
-        <span
-          title={moment(e.node.frontmatter.raw_date).format(
-            "MMMM DD, YYYY HH:mm"
-          )}
-        >
-          {e.node.frontmatter.date}
-        </span>{" "}
-        &nbsp; &middot; &nbsp;{` `}
-        {e.node.fields.readingTime.text}
-      </p>
-      <p>{e.node.excerpt}</p>
-    </div>
-  ))
+  blogPosts = blogPosts.map(e => {
+    const isDraft = e.node.frontmatter.draft ? <>(DRAFT)</> : <></>
+    return (
+      <div className="col-lg-8 col-lg-offset-2" key={e.node.fields.slug}>
+        <h3>
+          <Link to={`/blog${e.node.fields.slug}`}>
+            {e.node.frontmatter.title} {isDraft}
+          </Link>
+        </h3>
+        <p>
+          <span
+            title={moment(e.node.frontmatter.raw_date).format(
+              "MMMM DD, YYYY HH:mm"
+            )}
+          >
+            {e.node.frontmatter.date}
+          </span>{" "}
+          &nbsp; &middot; &nbsp;{` `}
+          {e.node.fields.readingTime.text}
+        </p>
+        <p>{e.node.excerpt}</p>
+      </div>
+    )
+  })
 
   return (
     <Layout path={path}>
@@ -83,12 +88,12 @@ const BlogList = ({ path, data, pageContext }) => {
 export default BlogList
 
 export const query = graphql`
-  query blogListQuery($skip: Int!, $limit: Int!) {
+  query blogListQuery($skip: Int!, $limit: Int!, $drafts: Boolean!) {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
-      filter: { frontmatter: { draft: { ne: true } } }
+      filter: { frontmatter: { draft: { eq: $drafts } } }
     ) {
       edges {
         node {
@@ -99,6 +104,7 @@ export const query = graphql`
             }
           }
           frontmatter {
+            draft
             title
             date(formatString: "MMMM DD, YYYY")
             raw_date: date

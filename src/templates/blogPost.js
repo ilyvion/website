@@ -27,6 +27,7 @@ export default class BlogPostTemplate extends React.Component {
     const siteMetadata = this.props.data.site.siteMetadata
     const postTitle = post.frontmatter.title
     const tags = post.frontmatter.tags
+    const isDraft = post.frontmatter.draft ? <>(DRAFT)</> : <></>
 
     return (
       <Layout path={path}>
@@ -37,7 +38,9 @@ export default class BlogPostTemplate extends React.Component {
         />
         <Header small />
         <CenteredSection className="bg-primary">
-          <h2 className="section-heading">{postTitle}</h2>
+          <h2 className="section-heading">
+            {postTitle} {isDraft}
+          </h2>
           <hr className="primary" />
           <p>
             <span
@@ -181,6 +184,7 @@ export const query = graphql`
       excerpt(pruneLength: 160)
       body
       frontmatter {
+        draft
         title
         date(formatString: "MMMM DD, YYYY")
         raw_date: date
