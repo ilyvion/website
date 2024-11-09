@@ -5,7 +5,7 @@ exports[`ExternalLink renders correctly 1`] = `
   href="http://example.com/"
   style={
     Object {
-      "white-space": "nowrap",
+      "whiteSpace": "nowrap",
     }
   }
 >
