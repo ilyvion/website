@@ -8,14 +8,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           submodules: true
 
       - name: Set Node.js
         uses: actions/setup-node@master
         with:
-          node-version: 12.x
+          node-version: 20.x
 
       - name: Install dependencies
         run: yarn install --pure-lockfile
@@ -26,7 +26,13 @@ jobs:
       - name: Build
         run: yarn run build
         env:
-          NODE_ENV: "prod"
+          NODE_ENV: "production"
+
+      - name: Install oxipng
+        run: cargo install oxipng --locked
+
+      - name: Run oxipng
+        run: oxipng -o max -a -r public
 
       - name: Deploy
         run: docker-compose run deploy

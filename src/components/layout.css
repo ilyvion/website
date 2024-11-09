@@ -293,4 +293,49 @@ body {
     margin-left: -50vw;
     margin-right: -50vw;
   }
+
+  .footnotes ol {
+    padding-left: 0;
+  }
+}
+
+.gatsby-resp-image-image {
+  background-image: none !important;
+}
+
+.gatsby-resp-image-background-image {
+  background-image: none !important;
+}
+
+.footnotes ol li {
+  padding-bottom: 1em;
+}
+
+details {
+  border-left: 2px solid var(--theme-color);
+  padding: 0.5em 0.5em 0;
+}
+
+details:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+  display: list-item;
+  /* border-left: 2px solid #aaa; */
+}
+
+details[open] {
+  padding: 0.5em;
+}
+
+details[open] summary {
+  margin-bottom: 0.5em;
+}
+
+details p:last-child {
+  margin-bottom: 0;
 }

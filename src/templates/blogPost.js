@@ -11,6 +11,8 @@ import SEO from "@components/seo"
 import Header from "@components/Header"
 import Section, { CenteredSection } from "@components/Section"
 import ExternalLink from "@components/externalLink"
+import MarkdownLink from "@components/markdownLink"
+import Measurement from "@components/measurementConversion"
 import Ruby from "@components/ruby"
 import UtterancesComments from "@components/utterancesComments"
 import AddToAny from "@components/addToAny"
@@ -18,7 +20,13 @@ import bySa from "@assets/by-sa.svg"
 
 import containerStyles from "./blogPost.module.css"
 
-const shortcodes = { ExternalLink, Link, Ruby }
+const shortcodes = {
+  ExternalLink,
+  Link,
+  Ruby,
+  Measurement,
+  a: MarkdownLink,
+}
 
 export default class BlogPostTemplate extends React.Component {
   render() {
@@ -97,14 +105,19 @@ export default class BlogPostTemplate extends React.Component {
           <div className="col-lg-8 col-lg-offset-2">
             <div>Let others know about this article:</div>
             <AddToAny>
-              <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-                <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-                <a class="a2a_button_facebook"></a>
-                <a class="a2a_button_mastodon"></a>
-                <a class="a2a_button_x"></a>
-                <a class="a2a_button_threads"></a>
-                <a class="a2a_button_reddit"></a>
-                <a class="a2a_button_hacker_news"></a>
+              {/* We disable these rules because these elements get populated by other Javascript */}
+              {/* eslint-disable jsx-a11y/control-has-associated-label */}
+              {/* eslint-disable jsx-a11y/anchor-has-content */}
+              {/* eslint-disable jsx-a11y/anchor-is-valid */}
+              <div className="a2a_kit a2a_kit_size_32 a2a_default_style">
+                <a className="a2a_dd" href="https://www.addtoany.com/share"></a>
+                <a className="a2a_button_facebook"></a>
+                <a className="a2a_button_mastodon"></a>
+                <a className="a2a_button_x"></a>
+                <a className="a2a_button_threads"></a>
+                <a className="a2a_button_reddit"></a>
+                <a className="a2a_button_hacker_news"></a>
+                {/* eslint-enable */}
               </div>
             </AddToAny>
           </div>

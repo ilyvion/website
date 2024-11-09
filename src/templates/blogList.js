@@ -10,7 +10,7 @@ import Section, { CenteredSection } from "@components/Section"
 const BlogList = ({ path, data, pageContext }) => {
   let blogPosts = data.allMdx.edges
 
-  const { currentPage, numPages, drafts } = pageContext
+  const { currentPage, numPages } = pageContext
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages
   const prevPage =
@@ -93,7 +93,7 @@ export const query = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
-      filter: { frontmatter: { draft: { eq: $drafts } } }
+      filter: { frontmatter: { draft: { ne: $drafts } } }
     ) {
       edges {
         node {

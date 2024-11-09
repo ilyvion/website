@@ -28,3 +28,13 @@
     text-align: right;
   }
 }
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+}
+
+td {
+  padding: 0.2em;
+}
