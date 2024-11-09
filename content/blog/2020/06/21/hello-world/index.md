@@ -3,6 +3,7 @@ title: "Hello, Blogosphere World"
 start_date: "2020-06-20T10:26:43Z"
 date: "2020-06-21T06:08:00Z"
 tags: ["blog", "gatsby", "github", "react"]
+draft: false
 comment_issue_id: 9
 ---
 

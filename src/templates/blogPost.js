@@ -20,6 +20,7 @@ import bySa from "@assets/by-sa.svg"
 
 import containerStyles from "./blogPost.module.css"
 
+// If you add new codes here, make sure you also add them to wrap-root-element.js!
 const shortcodes = {
   ExternalLink,
   Link,

@@ -27,6 +27,7 @@ jobs:
         run: yarn run build
         env:
           NODE_ENV: "production"
+          NODE_OPTIONS: "--openssl-legacy-provider"
 
       - name: Install oxipng
         run: cargo install oxipng --locked
@@ -35,7 +36,7 @@ jobs:
         run: oxipng -o max -a -r public
 
       - name: Deploy
-        run: docker-compose run deploy
+        run: docker compose run deploy
         env:
           DEPLOY_KEY: ${{ secrets.deploy_key }}
           DEPLOY_TARGET: ${{ secrets.deploy_target }}

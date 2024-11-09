@@ -4,11 +4,15 @@ import { Link } from "gatsby"
 
 import ExternalLink from "./components/externalLink"
 import Ruby from "./components/ruby"
+import MarkdownLink from "@components/markdownLink"
+import Measurement from "@components/measurementConversion"
 
 const components = {
-  Link,
   ExternalLink,
+  Link,
   Ruby,
+  Measurement,
+  a: MarkdownLink,
 }
 export const wrapRootElement = ({ element }) => (
   <MDXProvider components={components}>{element}</MDXProvider>

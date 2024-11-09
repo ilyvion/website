@@ -51,8 +51,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create blog posts pages.
   const blogTemplate = path.resolve(`./src/templates/blogPost.js`)
-  const posts = result.data.allMdx.edges.filter(e => !e.node.frontmatter.draft)
-  const drafts = result.data.allMdx.edges.filter(e => e.node.frontmatter.draft)
+  const posts = result.data.allMdx.edges.filter(e => !!e.node.frontmatter.draft)
+  const drafts = result.data.allMdx.edges.filter(e => !e.node.frontmatter.draft)
   const createBlogPage = (post, index, posts) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
@@ -74,11 +74,11 @@ exports.createPages = async ({ graphql, actions }) => {
   const postsPerPage = 10
 
   const createBlogListPage = function (posts, drafts) {
-    const numPosts = Math.ceil(posts.length / postsPerPage)
+    const numPosts = Math.max(Math.ceil(posts.length / postsPerPage), 1)
     const pathPrefix = drafts ? "/blog" : "/blog/drafts"
     Array.from({ length: numPosts }).forEach((_, i) => {
       createPage({
-        path: i === 0 ? `${pathPrefix}` : `${pathPrefix}/${i + 1}`,
+        path: i === 0 ? `${pathPrefix}/` : `${pathPrefix}/${i + 1}`,
         component: blogListTemplate,
         context: {
           drafts: drafts,
@@ -123,7 +123,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create tag-list page
   const tagListTemplate = path.resolve(`./src/templates/tagList.js`)
   createPage({
-    path: `/blog/tags`,
+    path: `/blog/tags/`,
     component: tagListTemplate,
     context: {},
   })
