@@ -4,7 +4,7 @@ start_date: "2024-11-10T06:28:00Z"
 date: "2024-11-10T11:18:00Z"
 tags: ["healthy-2024", "screenshots", "imagemagick", "automation"]
 draft: false
-#comment_issue_id: 42
+comment_issue_id: 58
 ---
 
 Yesterday I published my post on [starting my weight loss and health journey in 2024](/blog/2024/11/09/weight-loss-2024), and in it, I included a bunch of images that were extracted from screenshots from my calorie tracking app. I don't know if I technically have enough readers for this, but I thought that if I had come across that blog post written by someone else, I would have this question myself, and so I thought I'd preemptively respond to it—"how did you get those graphs extracted from screenshots of your calorie tracking app?"
