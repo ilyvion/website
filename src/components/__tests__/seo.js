@@ -31,32 +31,34 @@ describe("SEO", () => {
     expect(helmet.metaTags).toEqual(
       expect.arrayContaining([
         { name: "description", content: siteDescription },
-      ])
+      ]),
     )
     expect(helmet.metaTags).toEqual(
-      expect.arrayContaining([{ property: "og:title", content: pageTitle }])
+      expect.arrayContaining([{ property: "og:title", content: pageTitle }]),
     )
     expect(helmet.metaTags).toEqual(
       expect.arrayContaining([
         { property: "og:description", content: siteDescription },
-      ])
+      ]),
     )
     expect(helmet.metaTags).toEqual(
-      expect.arrayContaining([{ property: "og:type", content: "website" }])
+      expect.arrayContaining([{ property: "og:type", content: "website" }]),
     )
     expect(helmet.metaTags).toEqual(
-      expect.arrayContaining([{ name: "twitter:card", content: "summary" }])
+      expect.arrayContaining([{ name: "twitter:card", content: "summary" }]),
     )
     expect(helmet.metaTags).toEqual(
-      expect.arrayContaining([{ name: "twitter:creator", content: siteAuthor }])
+      expect.arrayContaining([
+        { name: "twitter:creator", content: siteAuthor },
+      ]),
     )
     expect(helmet.metaTags).toEqual(
-      expect.arrayContaining([{ name: "twitter:title", content: pageTitle }])
+      expect.arrayContaining([{ name: "twitter:title", content: pageTitle }]),
     )
     expect(helmet.metaTags).toEqual(
       expect.arrayContaining([
         { name: "twitter:description", content: siteDescription },
-      ])
+      ]),
     )
     expect(helmet.title).toBe("Page Title | Site Title")
   })
@@ -67,23 +69,23 @@ describe("SEO", () => {
         title={pageTitle}
         description={pageDescription}
         site={data.site}
-      />
+      />,
     )
     const helmet = Helmet.peek()
     expect(helmet.metaTags).toEqual(
       expect.arrayContaining([
         { name: "description", content: pageDescription },
-      ])
+      ]),
     )
     expect(helmet.metaTags).toEqual(
       expect.arrayContaining([
         { property: "og:description", content: pageDescription },
-      ])
+      ]),
     )
     expect(helmet.metaTags).toEqual(
       expect.arrayContaining([
         { name: "twitter:description", content: pageDescription },
-      ])
+      ]),
     )
   })
 
@@ -96,7 +98,7 @@ describe("SEO", () => {
   it("adds additional meta tags", () => {
     const extraMetaValue = { name: "extra", content: "value" }
     mount(
-      <PureSEO title={pageTitle} site={data.site} meta={[extraMetaValue]} />
+      <PureSEO title={pageTitle} site={data.site} meta={[extraMetaValue]} />,
     )
     const helmet = Helmet.peek()
     expect(helmet.metaTags).toEqual(expect.arrayContaining([extraMetaValue]))

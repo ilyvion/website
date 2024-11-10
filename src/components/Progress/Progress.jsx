@@ -12,8 +12,8 @@ class Progress extends Component {
 
   componentDidMount() {
     window.addEventListener("scroll", e => this.handleScroll(e), {
-		passive: true,
-	  })
+      passive: true,
+    })
   }
 
   componentWillUnmount() {
@@ -29,7 +29,7 @@ class Progress extends Component {
       body.offsetHeight,
       html.clientHeight,
       html.scrollHeight,
-      html.offsetHeight
+      html.offsetHeight,
     )
 
     const progress = document.scrollingElement.scrollTop

@@ -16,7 +16,7 @@ const ListGroup = ({ values, columnSize, icon }) => {
     listEntries.push(
       <li key={element} className="list-group-item">
         <i className={"fa fa-" + icon}></i> {element}
-      </li>
+      </li>,
     )
   })
 

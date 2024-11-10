@@ -11,25 +11,23 @@ import "./layout.css"
 import Navigation from "@components/Navigation"
 
 export default function Layout({ path, children }) {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            menuLinks {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          menuLinks {
+            id
+            link
+            name
+            pageNavs {
               id
-              link
               name
-              pageNavs {
-                id
-                name
-              }
             }
           }
         }
       }
-    `
-  )
+    }
+  `)
   return (
     <div style={{ height: "100%" }}>
       <Navigation path={path} menuItems={data.site.siteMetadata.menuLinks} />

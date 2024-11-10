@@ -22,4 +22,5 @@ Rust has bucked the trend of most modern programming languages, and does not sup
 If you are a fellow Rustacean[^rustacean], I'm sure you know exactly what I'm going to bring up as the primary challenge I faced early on. Did you say "fighting with the borrow checker?" Congratulations! 🎉🎈 I plan on going into details about the borrow checker in a future installment of this series.
 
 [^backstory-details]: Back in the summer of 2018, my wife and I had our firstborn child. While I don't feel like sharing intricate details about him or his predicament(s), suffice it to say that he basically did not sleep for more than 5–15 minutes at a time for his first 6 months of life, and for the next year after that, he would sleep _better_, but still wake up between 15-30 times every night. Severe sleep deprevation and an undue care burden over a period of nearly a year basically broke me, and I sank into a deep depression, from which I've still only scantly recovered. Maybe I'll write more about this experience some day.
+
 [^rustacean]: The word users of Rust have chosen as their autonym.

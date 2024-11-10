@@ -11,7 +11,9 @@
 
   background-size: 200% 100%;
   background-image: linear-gradient(to right, white 50%, #4075f0 50%);
-  transition: background-position 1s, color 1s;
+  transition:
+    background-position 1s,
+    color 1s;
 }
 
 .blogPreview:hover {

@@ -24,6 +24,9 @@ While I'd certainly prefer seeing <Ruby rt="Tō">東</Ruby><Ruby rt="kyō">京</
 Although I don't expect any of this to happen anytime soon, it's still worth thinking about. If you haven't already, I recommend you go watch J.J.'s video on the topic as well as linked at the start of this post.
 
 [^yao-ming]: Yao Ming is a former professional basketball player.
+
 [^maria-sharapova]: Maria Sharapova is a former world No. 1 tennis player.
+
 [^malala]: Malala is a Pakistani activist for female education and a Nobel Peace Prize laureate.
+
 [^writing-direction]: One possible issue here is that due to the opposite writing direction, the ruby characters don't match well to the underlying foreign characters; it ends up looking like "یوسفزۍ" is "Malala," when it is in fact "ملاله" that is "Malala."

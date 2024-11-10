@@ -25,7 +25,7 @@ export default class Arrow extends Component {
           arrowCalculationInProgress: false,
           arrowPosition: this.calculateArrowPosition(),
         })
-      }
+      },
     )
   }
 
@@ -33,7 +33,7 @@ export default class Arrow extends Component {
     const activePage = document.querySelector(".site-navbar .active")
     if (!activePage) {
       console.warn(
-        "The current page is missing from the navigation; cannot calculate arrow position"
+        "The current page is missing from the navigation; cannot calculate arrow position",
       )
       return
     }

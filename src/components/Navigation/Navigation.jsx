@@ -6,27 +6,29 @@ import Progress from "@components/Progress"
 import Arrow from "./Arrow"
 import "./Navigation.css"
 
-const NavbarTitle = React.forwardRef(({ title, toggleNavigationAction, clickTitleAction }, ref) => (
-  <div id="mainNavbar" className="navbar-header" ref={ref}>
-    <button
-      type="button"
-      className="navbar-toggle collapsed"
-      onClick={toggleNavigationAction}
-    >
-      <span className="sr-only">Toggle navigation</span>
-      <span className="icon-bar"></span>
-      <span className="icon-bar"></span>
-      <span className="icon-bar"></span>
-    </button>
-    <Link
-      to="/"
-      onClick={clickTitleAction}
-      className="navbar-brand page-scroll"
-    >
-      {title}
-    </Link>
-  </div>
-))
+const NavbarTitle = React.forwardRef(
+  ({ title, toggleNavigationAction, clickTitleAction }, ref) => (
+    <div id="mainNavbar" className="navbar-header" ref={ref}>
+      <button
+        type="button"
+        className="navbar-toggle collapsed"
+        onClick={toggleNavigationAction}
+      >
+        <span className="sr-only">Toggle navigation</span>
+        <span className="icon-bar"></span>
+        <span className="icon-bar"></span>
+        <span className="icon-bar"></span>
+      </button>
+      <Link
+        to="/"
+        onClick={clickTitleAction}
+        className="navbar-brand page-scroll"
+      >
+        {title}
+      </Link>
+    </div>
+  ),
+)
 NavbarTitle.displayName = "NavbarTitle"
 
 class Navigation extends Component {
@@ -108,7 +110,7 @@ class Navigation extends Component {
       body.offsetHeight,
       html.clientHeight,
       html.scrollHeight,
-      html.offsetHeight
+      html.offsetHeight,
     )
     var windowHeight = window.innerHeight
     var offset = window.pageYOffset
@@ -149,7 +151,7 @@ class Navigation extends Component {
           elapsed,
           offset,
           targetY,
-          settings.duration
+          settings.duration,
         )
         window.scrollTo(0, yScroll)
         self.timer = setTimeout(step, 10)
@@ -200,7 +202,7 @@ class Navigation extends Component {
           >
             {menuItem.name}
           </Link>
-        </li>
+        </li>,
       )
       if (menuItem.link === path) {
         if (menuItem.pageNavs && menuItem.pageNavs.length) {
@@ -212,7 +214,7 @@ class Navigation extends Component {
               >
                 Top
               </a>
-            </li>
+            </li>,
           )
           menuItem.pageNavs.forEach(pageNav => {
             const active = activePageNavigationItem === pageNav.id
@@ -224,7 +226,7 @@ class Navigation extends Component {
                 >
                   {pageNav.name}
                 </a>
-              </li>
+              </li>,
             )
           })
         }
@@ -235,7 +237,7 @@ class Navigation extends Component {
         <Link to="/blog/" activeClassName="active" partiallyActive={true}>
           Blog
         </Link>
-      </li>
+      </li>,
     )
 
     // Kludge to get transparent page navigation on main page
@@ -254,10 +256,10 @@ class Navigation extends Component {
       >
         <div className="container-fluid">
           <NavbarTitle
-		    ref={this.mainNavbarRef}
+            ref={this.mainNavbarRef}
             title="Alexander Krivács Schrøder"
-			toggleNavigationAction={() => this.toggleMobileNavigation()}
-			clickTitleAction={e => this.clickSiteNavigation(e)}
+            toggleNavigationAction={() => this.toggleMobileNavigation()}
+            clickTitleAction={e => this.clickSiteNavigation(e)}
           />
 
           <div

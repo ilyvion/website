@@ -11,7 +11,7 @@ const isBrowser = typeof window !== "undefined"
 const Juxtapose = ({ id, children }) => {
   const ref = useRef()
   const [juxtaposeAvailable, setJuxtaposeAvailable] = useState(
-    isBrowser ? window.juxtapose !== undefined : false
+    isBrowser ? window.juxtapose !== undefined : false,
   )
   const [juxtaposeCreated, setJuxtaposeCreated] = useState(false)
 
@@ -60,7 +60,7 @@ const Juxtapose = ({ id, children }) => {
             showCredits: false,
             startingPosition: "75%",
             makeResponsive: true,
-          }
+          },
         )
         setJuxtaposeCreated(true)
       }

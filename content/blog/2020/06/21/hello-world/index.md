@@ -39,6 +39,9 @@ If you want to see exactly how I did what I did, you're in luck! My <ExternalLin
 I don't intend on limiting myself regarding what to write about here, so upcoming posts will be covering whatever I feel like writing about. Still, my interests are mostly centered around software development, gaming and health and diet, and so I'd expect my blog posts to be, also.
 
 [^cliche]: Oh good, a cliché for a start.
+
 [^react]: Mostly because I had recently discovered and learned some React, and I wanted to use my newfound skills to improve my website.
+
 [^cms-details]: Some were homemade, while others were among the <ExternalLink to="https://www.mediawiki.org/">familiar</ExternalLink> and <ExternalLink to="https://www.drupal.org/">popular</ExternalLink>. These were used with varying degrees of satisfaction and update frequency.
+
 [^wayback]: Although who knows what the <ExternalLink to="https://web.archive.org/">Internet WayBack Machine</ExternalLink> may have saved deep in its bellows?

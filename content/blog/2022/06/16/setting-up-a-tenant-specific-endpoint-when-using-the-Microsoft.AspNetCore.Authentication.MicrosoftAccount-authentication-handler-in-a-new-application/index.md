@@ -20,6 +20,8 @@ I was recently tasked with setting up internal/employee authentication using Mic
 
 As I said, this was _internal/employee_ authentication, so when I was registering an application for this purpose in Azure Active Directory, I selected "Accounts in this organizational directory only (_&lt;Company name&gt;_ only - Single tenant)." If you try to use the `MicrosoftAccount` with this setup without special care though, you'll undoubtedly run into this problem as soon as you actually try logging in[^guids]:
 
+<!-- Until <https://github.com/prettier/prettier/issues/3837> is fixed, we need Prettier to ignore this bit -->
+<!-- prettier-ignore -->
 > Exception: invalid\_request;Description=AADSTS50194: Application 'f552b3c4-1b53-4406-8009-03b8c5438927'(_&lt;Active Directory App Registration name&gt;_) is not configured as a multi-tenant application. Usage of the /common endpoint is not supported for such applications created after '10/15/2018'. Use a tenant-specific endpoint or configure the application to be multi-tenant. Trace ID: b3029a49-cb3d-443d-9280-662398d0701d Correlation ID: 80b4dfe5-970d-44d2-9dd9-f7c799c2094c Timestamp: 2022-06-16 07:15:37Z
 
 I feel like this is something that the `MicrosoftAccount` library should've been updated to deal with back in 2018 when this change was made, but since it apparently isn't, we'll have to deal with it ourselves. Here's what you need to do in order to fix it.

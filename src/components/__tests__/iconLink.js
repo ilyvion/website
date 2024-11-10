@@ -19,7 +19,7 @@ describe("IconLink", () => {
           icon="icon"
           text="text"
           columnSize={6}
-        />
+        />,
       )
       .toJSON()
     expect(tree).toMatchSnapshot()

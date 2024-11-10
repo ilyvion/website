@@ -28,7 +28,7 @@ export default class TagTemplate extends React.Component {
         <p>
           <span
             title={moment(e.node.frontmatter.raw_date).format(
-              "MMMM DD, YYYY HH:mm"
+              "MMMM DD, YYYY HH:mm",
             )}
           >
             {e.node.frontmatter.date}

@@ -72,19 +72,17 @@ PureSEO.propTypes = {
 }
 
 function SEO(props) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          author
         }
       }
-    `
-  )
+    }
+  `)
 
   return <PureSEO {...props} site={site}></PureSEO>
 }

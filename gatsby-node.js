@@ -21,29 +21,24 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   // Get all blog entries
-  const result = await graphql(
-    `
-      {
-        allMdx(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                draft
-                title
-                tags
-              }
+  const result = await graphql(`
+    {
+      allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              draft
+              title
+              tags
             }
           }
         }
       }
-    `
-  )
+    }
+  `)
 
   if (result.errors) {
     throw result.errors

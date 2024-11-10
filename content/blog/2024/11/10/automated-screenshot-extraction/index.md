@@ -48,10 +48,17 @@ magick $inputFilePath -crop 1032x726+24+3380 -fuzz 2% -transparent "srgb(13,26,4
 where `$inputFilePath` is the path to the screenshot image and `$outputFileNameBase` is the file name base of the output file. An example of invocation was `./extract-images screenshot_20241103.jpg diet43`[^week43], which produced images named `diet43_{graphType}.png`, which I then used in my blog post.
 
 [^joy-and-learning]: That said—if you get joy and/or learning out of automating the task, it may still be worth doing; not everything has to be measured solely against time spent or saved!
+
 [^xckd-attribution]: xkcd comics are produced by Randall Munroe and licensed under a [Creative Commons Attribution-NonCommercial 2.5 License](https://creativecommons.org/licenses/by-nc/2.5/)
+
 [^avoiding-tedium]: I will readily admit, though, that in this case (and many others), I would much rather waste some additional time than have to do the tedious task, because sometimes my sanity or reducing the effort of the task is worth more than the absolute time spent. Wanting pixel perfect crop-outs from a screenshot is simply an incredibly tedious and time-consuming task to be doing, and it's also so fabulously easily automated that it's an open and shut case for automation.
+
 [^imagemagick]: ImageMagick truly feels like magic, and it's incredibly feature-rich and capable of enormously diverse and advanced tasks. If you haven't used it before, you're honestly missing out. I've been using it for as long as I can remember; it's been around since 1990!
+
 [^scrolling-screenshot]: [Scrolling screenshots](https://support.google.com/android/answer/9075928?hl=en) are honestly one of my most favorite Android features. Based on a cursory web search, they also appear to be available on iOS. It's incredibly handy, and everyone should be aware they exist!
+
 [^advanced-cropping]: I haven't really looked into this since I haven't needed it, but it would not at all surprise me if ImageMagick supported cropping that had rounded corners, which would probably have been my next go-to solution should I have needed it.
+
 [^jpeg]: JPEG artifacts are close to—but not equal—to their surrounding color.
+
 [^week43]: If you're curious what the 43 is about, I track my progress on a weekly basis, and this screenshot was for week 43 of 2024.
