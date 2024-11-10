@@ -16,16 +16,20 @@ import Measurement from "@components/measurementConversion"
 import Ruby from "@components/ruby"
 import UtterancesComments from "@components/utterancesComments"
 import AddToAny from "@components/addToAny"
+import Juxtapose from "@components/juxtapose"
+
 import bySa from "@assets/by-sa.svg"
 
 import containerStyles from "./blogPost.module.css"
 
+// IMPORTANT:
 // If you add new codes here, make sure you also add them to wrap-root-element.js!
 const shortcodes = {
   ExternalLink,
   Link,
   Ruby,
   Measurement,
+  Juxtapose,
   a: MarkdownLink,
 }
 

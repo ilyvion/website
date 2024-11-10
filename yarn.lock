@@ -10733,6 +10733,11 @@ jsx-ast-utils@^2.2.1, jsx-ast-utils@^2.2.3:
     array-includes "^3.1.1"
     object.assign "^4.1.0"
 
+juxtaposejs@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/juxtaposejs/-/juxtaposejs-1.1.6.tgz#7173ea7416102e93950c6997895b8a075864ce73"
+  integrity sha512-bweRAIwSTx7q50Z3KAt7Dm8jwzcJP227gVm3AkDgglWCrUqOB3yl+6srYILbh40BVsno/EtK+mdGJGJn+wPJ3g==
+
 keyv@3.0.0, keyv@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/keyv/-/keyv-3.0.0.tgz"

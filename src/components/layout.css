@@ -339,3 +339,7 @@ details[open] summary {
 details p:last-child {
   margin-bottom: 0;
 }
+
+.juxtapose {
+  margin-bottom: 20px;
+}
