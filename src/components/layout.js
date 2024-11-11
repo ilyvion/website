@@ -1,14 +1,17 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-// Wrap the require in check for window
-if (typeof window !== `undefined`) {
-  import("juxtaposejs/build/js/juxtapose")
-  import("juxtaposejs/build/css/juxtapose.css")
-}
 
 import "./layout.css"
 
 import Navigation from "@components/Navigation"
+
+// `window` only exists in the browser and Juxtapose requires it, so we only import it there.
+if (typeof window !== `undefined`) {
+  /* eslint-disable no-unused-expressions */
+  import("juxtaposejs/build/js/juxtapose")
+  import("juxtaposejs/build/css/juxtapose.css")
+  /* eslint-enable */
+}
 
 export default function Layout({ path, children }) {
   const data = useStaticQuery(graphql`
