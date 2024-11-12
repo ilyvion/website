@@ -1,7 +1,7 @@
 ---
 title: "Getting healthy in 2024 — Week 45"
 start_date: "2024-11-11T03:53:00Z"
-date: "2024-11-11T03:53:00Z"
+date: "2024-11-12T06:00:00Z"
 tags:
   [
     "self-improvement",
@@ -19,6 +19,8 @@ Starting calorie target: <Measurement>2136 kcal</Measurement>
 End calorie target: <Measurement>2116 kcal</Measurement>
 
 I cheekily ended my last post on a "cliffhanger," but since I alluded to in it several times that I was getting back on track, it should come as a surprise to nobody that it's been a good week for me.
+
+I mostly finished this blog post yesterday, but due to being incredibly busy all day yesterday I didn't have time to finalize it until this morning, which is why it's coming on Tuesday instead of Monday—the planned day.
 
 #### Weight
 
