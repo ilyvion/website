@@ -40,6 +40,13 @@ const Measurement = ({ children }) => {
         {round(miles, 1)}&nbsp;{milesUnit})
       </>
     )
+  } else if (unit === "ml") {
+    let floz = Number(value) * 0.03519508
+    return (
+      <>
+        {value}&nbsp;{unit} ({round(floz, 1)}&nbsp;fl&nbsp;oz)
+      </>
+    )
   }
   console.warn("Measurement given with unrecognized unit:", unit)
   return (

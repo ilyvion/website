@@ -73,7 +73,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const pathPrefix = drafts ? "/blog" : "/blog/drafts"
     Array.from({ length: numPosts }).forEach((_, i) => {
       createPage({
-        path: i === 0 ? `${pathPrefix}/` : `${pathPrefix}/${i + 1}`,
+        path: i === 0 ? `${pathPrefix}/` : `${pathPrefix}/${i + 1}/`,
         component: blogListTemplate,
         context: {
           drafts: drafts,
