@@ -1,6 +1,5 @@
 import React from "react"
 import round from "lodash/round"
-import { map } from "lodash"
 
 const UNIT_CONVERSIONS = {
   kg: ["lbs", 2.204623, 1],
