@@ -1,57 +1,70 @@
 import React from "react"
 import round from "lodash/round"
+import { map } from "lodash"
+
+const UNIT_CONVERSIONS = {
+  kg: ["lbs", 2.204623, 1],
+  g: ["oz", 0.03527396, 1],
+  kcal: ["kJ", 4.184, 0],
+  km: ["miles", 0.6213712, 1],
+  ml: ["fl oz", 0.03519508, 1],
+  "g/kg": ["g/lbs", 1 / 2.204623, 1],
+  // derived:
+  "km/h": ["mph", "km"],
+}
+
+const INVERTED_UNIT_CONVERSIONS = {}
+Object.keys(UNIT_CONVERSIONS).forEach(key => {
+  const value = UNIT_CONVERSIONS[key]
+  if (typeof value[1] === "string") {
+    INVERTED_UNIT_CONVERSIONS[value[0]] = [key, UNIT_CONVERSIONS[value[1]][0]]
+  } else {
+    INVERTED_UNIT_CONVERSIONS[value[0]] = [key, 1 / value[1], value[2]]
+  }
+})
 
 const Measurement = ({ children }) => {
-  let [value, unit] = children.split(" ")
-  if (unit === "kg") {
-    let lbs = Number(value) * 2.204623
-    return (
-      <>
-        {value}&nbsp;{unit} ({round(lbs, 1)}&nbsp;lbs)
-      </>
-    )
-  } else if (unit === "g") {
-    let oz = Number(value) * 0.03527396
-    return (
-      <>
-        {value}&nbsp;{unit} ({round(oz, 1)}&nbsp;oz)
-      </>
-    )
-  } else if (unit === "kcal") {
-    let kj = Number(value) * 4.184
-    return (
-      <>
-        {value}&nbsp;{unit} ({round(kj, 0)}&nbsp;kJ)
-      </>
-    )
-  } else if (unit === "kJ") {
-    let kcal = Number(value) * 0.239006
-    return (
-      <>
-        {round(kcal, 0)}&nbsp;kcal ({value}&nbsp;{unit})
-      </>
-    )
-  } else if (unit === "km" || unit === "km/h") {
-    let miles = Number(value) * 0.6213712
-    let milesUnit = unit === "km" ? "miles" : "mph"
-    return (
-      <>
-        {value}&nbsp;<span style={{ whiteSpace: "nowrap" }}>{unit}</span> (
-        {round(miles, 1)}&nbsp;{milesUnit})
-      </>
-    )
-  } else if (unit === "ml") {
-    let floz = Number(value) * 0.03519508
-    return (
-      <>
-        {value}&nbsp;{unit} ({round(floz, 1)}&nbsp;fl&nbsp;oz)
-      </>
-    )
+  const [value, unit] = children.split(" ")
+  let conversion = null
+  let inversion = false
+  if (unit in UNIT_CONVERSIONS) {
+    conversion = UNIT_CONVERSIONS[unit]
+  } else if (unit in INVERTED_UNIT_CONVERSIONS) {
+    conversion = INVERTED_UNIT_CONVERSIONS[unit]
+    inversion = true
+  }
+  if (typeof conversion[1] === "string") {
+    let derivee = null
+    if (inversion) {
+      derivee = INVERTED_UNIT_CONVERSIONS[conversion[1]]
+    } else {
+      derivee = UNIT_CONVERSIONS[conversion[1]]
+    }
+    conversion = [conversion[0], derivee[1], derivee[2]]
+  }
+  if (conversion !== null) {
+    let converted = Number(value) * conversion[1]
+    if (inversion) {
+      return (
+        <>
+          {round(converted, conversion[2])}&nbsp;
+          {conversion[0]} ({value}&nbsp;{unit})
+        </>
+      )
+    } else {
+      return (
+        <>
+          {value}&nbsp;{unit} ({round(converted, conversion[2])}&nbsp;
+          {conversion[0]})
+        </>
+      )
+    }
   }
   console.warn("Measurement given with unrecognized unit:", unit)
   return (
     <>
-      {value}&nbsp;{unit}
+      {value}&nbsp;{unit}{" "}
+      <span style={{ color: "red" }}>(unrecognized conversion)</span>
     </>
   )
 }

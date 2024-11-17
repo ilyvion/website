@@ -38,3 +38,7 @@ table {
 td {
   padding: 0.2em;
 }
+
+li > p {
+  margin: 0;
+}
