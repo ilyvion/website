@@ -29,6 +29,11 @@ export default function HTML(props) {
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
         />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7619179512121019"
+          crossorigin="anonymous"
+        ></script>
         {props.headComponents}
       </head>
       <body id="page-top" {...props.bodyAttributes}>
