@@ -28,14 +28,14 @@ Since I found that having to write this on Mondays can be challenging, I'm start
 
 | Date         | Weight                              | Trend                               | Variance                            |
 | ------------ | ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| Nov 17, 2024 | <Measurement>128.3 kg</Measurement> | <Measurement>131.2 kg</Measurement> | <Measurement>-2.9 kg </Measurement> |
-| Nov 16, 2024 | <Measurement>128.4 kg</Measurement> | <Measurement>131.5 kg</Measurement> | <Measurement>-3.1 kg </Measurement> |
-| Nov 15, 2024 | <Measurement>129.7 kg</Measurement> | <Measurement>131.9 kg</Measurement> | <Measurement>-2.2 kg </Measurement> |
-| Nov 14, 2024 | <Measurement>129.5 kg</Measurement> | <Measurement>132.1 kg</Measurement> | <Measurement>-2.6 kg </Measurement> |
-| Nov 13, 2024 | <Measurement>129.6 kg</Measurement> | <Measurement>132.4 kg</Measurement> | <Measurement>-2.8 kg </Measurement> |
-| Nov 12, 2024 | <Measurement>129.7 kg</Measurement> | <Measurement>132.7 kg</Measurement> | <Measurement>-3.0 kg </Measurement> |
-| Nov 11, 2024 | <Measurement>130.2 kg</Measurement> | <Measurement>133.0 kg</Measurement> | <Measurement>-2.8 kg </Measurement> |
 | Nov 10, 2024 | <Measurement>130.1 kg</Measurement> | <Measurement>133.3 kg</Measurement> | <Measurement>-3.2 kg </Measurement> |
+| Nov 11, 2024 | <Measurement>130.2 kg</Measurement> | <Measurement>133.0 kg</Measurement> | <Measurement>-2.8 kg </Measurement> |
+| Nov 12, 2024 | <Measurement>129.7 kg</Measurement> | <Measurement>132.7 kg</Measurement> | <Measurement>-3.0 kg </Measurement> |
+| Nov 13, 2024 | <Measurement>129.6 kg</Measurement> | <Measurement>132.4 kg</Measurement> | <Measurement>-2.8 kg </Measurement> |
+| Nov 14, 2024 | <Measurement>129.5 kg</Measurement> | <Measurement>132.1 kg</Measurement> | <Measurement>-2.6 kg </Measurement> |
+| Nov 15, 2024 | <Measurement>129.7 kg</Measurement> | <Measurement>131.9 kg</Measurement> | <Measurement>-2.2 kg </Measurement> |
+| Nov 16, 2024 | <Measurement>128.4 kg</Measurement> | <Measurement>131.5 kg</Measurement> | <Measurement>-3.1 kg </Measurement> |
+| Nov 17, 2024 | <Measurement>128.3 kg</Measurement> | <Measurement>131.2 kg</Measurement> | <Measurement>-2.9 kg </Measurement> |
 
 ![Graph of the weights in week 46](weight.png "Graph of the weights in week 46")
 
