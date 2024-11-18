@@ -72,12 +72,19 @@ Finally, I had some snacks here and there. Most days I had a few Christmas cooki
 
 #### Exercise
 
-- November 5: Multiple walks for a total of 1 hour and 8 minute walk that was <Measurement>4.4 km</Measurement> in distance (walking speed <Measurement>3.9 km/h</Measurement>)
-- November 6: Multiple walks for a total of 1 hour and 44 minute walk that was <Measurement>7.7 km</Measurement> in distance (walking speed <Measurement>4.5 km/h</Measurement>)
-- November 8: Multiple walks for a total of 51 minute walk that was <Measurement>3.7 km</Measurement> in distance (walking speed <Measurement>4.4 km/h</Measurement>) + 1 hour exercise under the guidance of the lifestyle change program
-- November 10: Multiple walks for a total of 1 hour and 50 minute walk that was <Measurement>6.7 km</Measurement> in distance (walking speed <Measurement>3.7 km/h</Measurement>)
+- **November 5**:
+  - Walking for <Walk hours={1} minutes={8} distance={4.4} />
+- **November 6**:
+  - Walking for <Walk hours={1} minutes={44} distance={7.7} />
+- **November 8**:
+  - Walking for <Walk minutes={51} distance={3.7} />
+  - 1 hour of exercise under the guidance of the lifestyle change program
+- **November 10**:
+  - Walking for <Walk hours={1} minutes={50} distance={6.7} />
 
-#### Summary
+This week I walked for <Walk hours={3} minutes={8+44+51+50} distance={4.4+7.7+3.7+6.7} />.
+
+#### Final thoughts
 
 I'm having to reduce my intake because of an ever-lowering calorie target; I could eat ~<Measurement>2400 kcal</Measurement> at the start of my journey, but now I need only ~<Measurement>2100 kcal</Measurement>; that's "half a meal"'s worth of calories lost. So I reduced the size of my breakfast and lunch to compensate.
 

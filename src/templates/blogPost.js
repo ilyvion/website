@@ -13,6 +13,7 @@ import Section, { CenteredSection } from "@components/Section"
 import ExternalLink from "@components/externalLink"
 import MarkdownLink from "@components/markdownLink"
 import Measurement from "@components/measurementConversion"
+import Walk from "@components/walk"
 import Ruby from "@components/ruby"
 import UtterancesComments from "@components/utterancesComments"
 import AddToAny from "@components/addToAny"
@@ -29,6 +30,7 @@ const shortcodes = {
   Link,
   Ruby,
   Measurement,
+  Walk,
   Juxtapose,
   a: MarkdownLink,
 }
