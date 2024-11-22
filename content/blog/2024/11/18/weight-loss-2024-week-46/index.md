@@ -124,7 +124,7 @@ Here is the graph for the last 30 days for today:
 
 ![Graph of the weights in the last 30 days](weight30.png "Graph of the weights in the last 30 days")
 
-[^christmas-dinner]: Specifically, we had [pinnekjøtt](https://en.wikipedia.org/wiki/Pinnekj%C3%B8tt) with rutabaga purée and potatoes. The meat by itself has a caloric density of <Measurement>~450 kcal</Measurement> per <Measurement>100 g</Measurement> (dry), and a serving is around <Measurement>400 g</Measurement> per person dry or <Measurement>600 g</Measurement> per person reconstituted, i.e. ~<Measurement>1792 kcal</Measurement>. You can see why this gets out of hand quickly. You eat sides with the meal, and those who choose to imbibe in alcohol will get additional calories there, and then finally, it's common to have dessert after. So it's obviously not a meal you should have regularly if caloric restriction is what you're after.
+[^christmas-dinner]: Specifically, we had [pinnekjøtt](https://en.wikipedia.org/wiki/Pinnekj%C3%B8tt) with rutabaga purée and potatoes. The meat by itself has a caloric density of ~<Measurement>450 kcal</Measurement> per <Measurement>100 g</Measurement> (dry), and a serving is around <Measurement>400 g</Measurement> per person dry or <Measurement>600 g</Measurement> per person reconstituted, i.e. ~<Measurement>1792 kcal</Measurement>. You can see why this gets out of hand quickly. You eat sides with the meal, and those who choose to imbibe in alcohol will get additional calories there, and then finally, it's common to have dessert after. So it's obviously not a meal you should have regularly if caloric restriction is what you're after.
 
 [^matching-calories]: I wasn't aiming for being that exact; it's just an amusing coincidence!
 
