@@ -104,6 +104,8 @@ While I signed up for the gym last week, this week is when I started going. My p
 
 ![Exercise on November 16](exercise-16.jpg "Exercise on November 16")
 
+![Total weight lifted](exercise-weight-lifted.jpg "Total weight lifted")
+
 The first two were mostly auto-generated; on Saturday I did a bit of customization to include muscles the app didn't, but I'm not sure I'll bother going forward. While there's probably some utility to exercising abductors, adductors, and the trapezius, they're probably not super important for strength alone, which is my current focus. Maybe they'll start being included automatically later when/if I change out strength for hypertrophy or switch from beginner to intermediate or advanced experience.
 
 #### Sleep
