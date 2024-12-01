@@ -7,6 +7,12 @@
   --theme-tertiary-color-hover: #4ac534;
 }
 
+@media (prefers-contrast: more) {
+  :root {
+    --theme-color: #316bf2;
+  }
+}
+
 /* We need this because of https://github.com/google/fonts/issues/1702 */
 @font-face {
   font-family: Nunito-Local;
