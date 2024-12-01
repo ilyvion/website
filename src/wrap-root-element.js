@@ -6,6 +6,7 @@ import ExternalLink from "./components/externalLink"
 import Ruby from "./components/ruby"
 import MarkdownLink from "@components/markdownLink"
 import Measurement from "@components/measurementConversion"
+import Walk from "@components/walk"
 import Juxtapose from "@components/juxtapose"
 
 const components = {
@@ -13,6 +14,7 @@ const components = {
   Link,
   Ruby,
   Measurement,
+  Walk,
   Juxtapose,
   a: MarkdownLink,
 }
