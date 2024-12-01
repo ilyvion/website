@@ -1,9 +1,40 @@
-import React from "react"
+import React, { useMemo, useState } from "react"
 import PropTypes from "prop-types"
 import containerStyles from "./Header.module.css"
 import portrait from "./portrait.jpg"
 
+import moment from "moment"
+
+import useInterval from "@utils/useInterval"
+
 const Header = ({ small, header, tagline }) => {
+  const [now, setNow] = useState(moment())
+  useInterval(() => {
+    setNow(moment())
+  }, 1000)
+
+  let specialStyle = useMemo(() => {
+    let month = now.month() + 1
+
+    if (month === 12) {
+      return (
+        containerStyles.headerWinter + " " + containerStyles.headerChristmas
+      )
+    } else if (month > 10 || month < 3) {
+      return containerStyles.headerWinter
+    }
+
+    return null
+  }, [now])
+
+  let specialComponent = useMemo(() => {
+    if (specialStyle !== null) {
+      return <div className={specialStyle} aria-hidden="true"></div>
+    } else {
+      return null
+    }
+  }, [specialStyle])
+
   if (small) {
     return <header className={containerStyles.headerSmall}></header>
   } else {
@@ -17,6 +48,7 @@ const Header = ({ small, header, tagline }) => {
             <span className={containerStyles.btnBlue}>{tagline}</span>
           </div>
         </div>
+        {specialComponent}
       </header>
     )
   }

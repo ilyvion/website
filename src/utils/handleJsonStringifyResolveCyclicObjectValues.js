@@ -1,4 +1,4 @@
-export function handleJsonStringifyResolveCyclicObjectValues(seen) {
+export default function handleJsonStringifyResolveCyclicObjectValues(seen) {
   return function (key, val) {
     if (val != null && typeof val == "object") {
       if (seen.indexOf(val) >= 0) {

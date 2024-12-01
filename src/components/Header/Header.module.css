@@ -67,6 +67,52 @@
   line-height: 1.42857143;
 }
 
+.headerWinter {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  min-height: 100%;
+
+  background-image: url(./snow1.png), url(./snow2.png), url(./snow3.png);
+
+  background-repeat: repeat, repeat, repeat, no-repeat, no-repeat, no-repeat,
+    no-repeat;
+  background-size: auto, auto, auto, 33%, 18.12%, 28.35%, 24.17%;
+
+  animation: snow 60s linear infinite;
+
+  pointer-events: none;
+}
+
+.headerWinter.headerChristmas {
+  background-image: url(./snow1.png), url(./snow2.png), url(./snow3.png),
+    url(./christmas-top-left.png), url(./christmas-top-right.png),
+    url(./christmas-bottom-left.png), url(./christmas-bottom-right.png);
+}
+
+@keyframes snow {
+  0% {
+    background-position:
+      0 0,
+      0 0,
+      0 0,
+      0 50px,
+      100% 50px,
+      0 100%,
+      100% 100%;
+  }
+  100% {
+    background-position:
+      3000px 6000px,
+      2400px 2400px,
+      1800px 1800px,
+      0 50px,
+      100% 50px,
+      0 100%,
+      100% 100%;
+  }
+}
+
 @media (min-width: 768px) {
   .headerContent {
     position: absolute;
@@ -83,5 +129,32 @@
   }
   .imgCircle {
     max-width: 200px;
+  }
+
+  .headerWinter {
+    background-size: auto, auto, auto, 25%, 13.73%, 21.48%, 18.31%;
+  }
+
+  @keyframes snow {
+    0% {
+      background-position:
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        100% 0,
+        0 100%,
+        100% 100%;
+    }
+    100% {
+      background-position:
+        3000px 6000px,
+        2400px 2400px,
+        1800px 1800px,
+        0 0,
+        100% 0,
+        0 100%,
+        100% 100%;
+    }
   }
 }
