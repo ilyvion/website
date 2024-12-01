@@ -13,6 +13,67 @@ const Links = ({ path }) => (
       description="External sites that I recommend that you visit"
     />
     <Header small />
+    <Section id="fitness" className="no-bottom-margin">
+      <h2 className="section-heading text-center">Fitness and Health</h2>
+      <hr className="primary" />
+      <h3>YouTube</h3>
+      <p>
+        These are sorted by a combination of how much useful information I can
+        glean from these channels and how much I enjoy them, but you should make
+        up your own mind about whether <strong>you</strong> should trust them or
+        not.
+      </p>
+      <ul>
+        <li>
+          <ExternalLink to="https://www.youtube.com/@FitnessOutrageous">
+            Ali Spagnola's Fitness Outrageous
+          </ExternalLink>
+        </li>
+        <li>
+          <ExternalLink to="https://www.youtube.com/@NoLabCoatRequired">
+            No Lab Coat Required
+          </ExternalLink>
+        </li>
+        <li>
+          <ExternalLink to="https://www.youtube.com/@RenaissancePeriodization">
+            Renaissance Periodization
+          </ExternalLink>
+        </li>
+        <li>
+          <ExternalLink to="https://www.youtube.com/@JeffNippard">
+            Jeff Nippard
+          </ExternalLink>
+        </li>
+        <li>
+          <ExternalLink to="https://www.youtube.com/@WillTennyson">
+            Will Tennyson
+          </ExternalLink>
+        </li>
+        <li>
+          <ExternalLink to="https://www.youtube.com/@menno.henselmans">
+            Menno Henselmans
+          </ExternalLink>
+        </li>
+        <li>
+          <ExternalLink to="https://www.youtube.com/@coacheugeneteo">
+            Eugene Teo
+          </ExternalLink>
+        </li>
+        <li>
+          <ExternalLink to="https://www.youtube.com/@JeremyEthier">
+            Jeremy Ethier
+          </ExternalLink>
+        </li>
+      </ul>
+      <h3>General/Miscellaneous/Other</h3>
+      <ul>
+        <li>
+          <ExternalLink to="https://thefitness.wiki/">
+            The Fitness Wiki
+          </ExternalLink>
+        </li>
+      </ul>
+    </Section>
     <Section id="webcomics">
       <h2 className="section-heading text-center">Webcomics</h2>
       <hr className="primary" />
@@ -48,7 +109,7 @@ const Links = ({ path }) => (
           <i className="fa fa-star" aria-label="star"></i>
         </li>
         <li>
-          <ExternalLink to="https://www.odditywoods.com/">
+          <ExternalLink to="https://cygulls.itch.io/the-art-of-oddity-woods">
             Oddity Woods
           </ExternalLink>{" "}
           <i className="fa fa-star" aria-label="star"></i>{" "}
@@ -65,6 +126,7 @@ const Links = ({ path }) => (
           <ExternalLink to="https://flakypastry.runningwithpencils.com/">
             Flaky Pastry
           </ExternalLink>
+          <i class="fa fa-moon" aria-label="moon"></i>
         </li>
         <li>
           <ExternalLink to="https://ohumanstar.com/">O Human Star</ExternalLink>{" "}

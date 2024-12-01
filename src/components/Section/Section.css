@@ -2,6 +2,10 @@ section {
   padding: 100px 0;
 }
 
+section.no-bottom-margin {
+  padding-bottom: 0;
+}
+
 .section-heading {
   margin-top: 0;
 }
