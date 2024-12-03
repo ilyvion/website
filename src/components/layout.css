@@ -349,3 +349,27 @@ details p:last-child {
 .juxtapose {
   margin-bottom: 20px;
 }
+
+figure {
+  position: relative;
+}
+
+figure > figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: #efefef;
+  padding: 0 1em;
+  margin: 0 auto;
+
+  opacity: 0;
+
+  transition: opacity 500ms;
+  pointer-events: none;
+}
+
+figure:hover > figcaption {
+  opacity: 1;
+}
